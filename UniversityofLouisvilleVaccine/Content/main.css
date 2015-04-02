@@ -166,7 +166,7 @@ ul.nostyle i {
   height: auto;
   padding: 8px 15px 2px;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
   #main-menu.navbar-default {
     background: rgba(255, 255, 255, 0.9);
     -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
@@ -175,6 +175,8 @@ ul.nostyle i {
   #main-menu.navbar-default .navbar-nav > li > a {
     padding-top: 40px;
     padding-bottom: 40px;
+    margin-left: -10px;
+    margin-right: -10px;
   }
   #main-menu.navbar-default .navbar-nav > li.active > a,
   #main-menu.navbar-default .navbar-nav > li.open > a,
@@ -926,7 +928,7 @@ ul.nostyle i {
   display: inline-block;
   margin: 0 7.5px;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
   #footer .social-icons {
     float: right;
   }
