@@ -47,10 +47,13 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.vaccineID)
+                    @*@Html.DisplayNameFor(model => model.vaccineID)*@
+                    @Html.ActionLink("Vaccine ID", "Index", new { sortBy = ViewBag.DescSort})
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.vaccineName)
+                    @*@Html.DisplayNameFor(model => model.vaccineName)*@
+                    @Html.ActionLink("Vaccine", "Index", new { sortBy = ViewBag.NameSort })
+
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.dateReceived)

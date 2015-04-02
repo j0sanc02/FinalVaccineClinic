@@ -22,8 +22,33 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
         // GET: /Vaccine/
         //[Authorize(Roles = "Admin, Executive, ProgramStaff, Researcher")]
-        public ActionResult Index(string lotnumber, string searchString, string StringID)
+        public ActionResult Index(string lotnumber, string searchString, string StringID, string sortby)
         {
+
+            ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.DescSort = sortby == "Description" ? "Description desc" : "Description";
+
+            var vaccines = from v in db.Vaccines select v;
+            switch(sortby)
+            {
+                case "Name desc":
+                    vaccines = vaccines.OrderByDescending(s=>s.vaccineName);
+                    break;
+                case "Name":
+                    vaccines = vaccines.OrderBy(s => s.vaccineName);
+                    break;
+                case "Description desc":
+                    vaccines = vaccines.OrderByDescending(s => s.vaccineID);
+                    break;
+                case "Description":
+                    vaccines = vaccines.OrderBy(s=>s.vaccineID);
+                    break;
+                default:
+                    vaccines=vaccines.OrderBy(s=>s.vaccineName);
+                    break;
+
+            }
+            
             var lotlist = new List<string>();
 
             var lotqry = from d in db.Vaccines
@@ -34,16 +59,8 @@ namespace UniversityofLouisvilleVaccine.Controllers
             lotlist.AddRange(lotqry.Distinct());
             ViewBag.lotNumber = new SelectList(lotlist);
 
-            var vaccines = from v in db.Vaccines select v;
+            //var vaccines = from v in db.Vaccines select v;
             
-            //if (!String.IsNullOrEmpty(StringID))
-            //{
-            //    vaccines = vaccines.Where(s => s.vaccineID == StringID);
-
-            //}return View(vaccines);
-
-            
-
             if (!String.IsNullOrEmpty(searchString))
             {
                 vaccines = vaccines.Where(s => s.vaccineName.Contains(searchString));
