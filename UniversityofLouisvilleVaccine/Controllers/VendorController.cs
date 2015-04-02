@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using UniversityofLouisvilleVaccine.Models;
 using UniversityofLouisvilleVaccine.DataContexts;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
@@ -16,9 +19,18 @@ namespace UniversityofLouisvilleVaccine.Controllers
         private VendorDBContext db = new VendorDBContext();
 
         // GET: /Vendor/
-        public ActionResult Index()
+        public ActionResult Index(string sstring)
         {
-            return View(db.Vendors.ToList());
+            var vendor = from ve in db.Vendors 
+                         select ve;
+
+            if (!String.IsNullOrEmpty(sstring))
+            {
+                vendor = vendor.Where(s => s.vaccines.Contains(sstring));
+                
+            }
+
+            return View(vendor);
         }
 
         // GET: /Vendor/Details/5
@@ -123,6 +135,45 @@ namespace UniversityofLouisvilleVaccine.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public void ExporttoExcel()
+        {
+            var grid = new GridView();
+            VendorDBContext db = new VendorDBContext();
+
+            grid.DataSource = from data in db.Vendors.ToList()
+                              select new
+                              {
+                                  VendorName = data.vendorName,
+                                  VendorPhone = data.vendorPhone,
+                                  VendorFax = data.vendorFax,
+                                  VendorEmail = data.vendorEmail,
+                                  VendorWebsite = data.vendorWebsite,
+                                  VendorAddress1 = data.vendorAddress1,
+                                  VendorAddress2 = data.vendorAddress2,
+                                  VendorCity = data.city,
+                                  VendorState = data.state,
+                                  VendorZip = data.zip,
+                                  Vaccines = data.vaccines
+                                
+                              };
+
+            grid.DataBind();
+
+            Response.ClearContent();
+            Response.AddHeader("Content-Disposition", "attachment; filename=ExportedVaccineList.xls");
+            Response.ContentType = "application/excel";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htmlTextWriter = new HtmlTextWriter(sw);
+
+            grid.RenderControl(htmlTextWriter);
+
+            Response.Write(sw.ToString());
+            Response.End();
+
+
+            //StringWriter sw = new StringWriter();
+
         }
     }
 }
