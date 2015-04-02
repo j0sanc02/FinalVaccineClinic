@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\jpapp_000\Desktop\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\UniversityofLouisvilleVaccine\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="C:\Users\jpapp_000\Desktop\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\UniversityofLouisvilleVaccine\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\jpapp_000\Desktop\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\UniversityofLouisvilleVaccine\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\jpapp_000\Desktop\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\UniversityofLouisvilleVaccine\obj\Release\Package\PackageTmp\App_Data" setAclResourceType="Directory" setAclAccess="Write" />
+</sitemanifest>

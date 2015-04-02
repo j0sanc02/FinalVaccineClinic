@@ -1,0 +1,156 @@
+﻿@model UniversityofLouisvilleVaccine.Models.VaccineUse
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VaccineUse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccineID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lotNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lotNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinjectionSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinjectionSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RinjectionSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RinjectionSite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LIntradermal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIntradermal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RIntradermal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RIntradermal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LIntramuscular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIntramuscular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RIntramuscular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RIntramuscular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lnasal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lnasal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rnasal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rnasal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lsub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lsub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rsub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rsub)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VaccineUseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaccineUseDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

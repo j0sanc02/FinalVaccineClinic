@@ -1,0 +1,67 @@
+﻿@model UniversityofLouisvilleVaccine.Models.VaccineNotification
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VaccineNotification</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccineID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lotNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lotNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numofDoses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numofDoses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.warning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.warning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notificationchecked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notificationchecked)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NotificationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

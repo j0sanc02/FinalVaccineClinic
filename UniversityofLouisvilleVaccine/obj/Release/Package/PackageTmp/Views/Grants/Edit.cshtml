@@ -1,0 +1,61 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Grants
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Grants</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.docType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.docType, new { style = "width:175px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.docType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fileName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fileName, new { style = "width:175px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fileName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.uploadDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.uploadDate)
+                @Html.ValidationMessageFor(model => model.uploadDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Document", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Document" name="upload" />
+            </div>
+        </div>
+               
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

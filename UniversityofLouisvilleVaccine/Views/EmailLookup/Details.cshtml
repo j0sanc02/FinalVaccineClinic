@@ -1,0 +1,51 @@
+﻿@model UniversityofLouisvilleVaccine.Models.EmailLookup
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmailLookup</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VacID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lotn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lotn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

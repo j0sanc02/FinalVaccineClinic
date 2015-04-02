@@ -1,0 +1,189 @@
+﻿@model UniversityofLouisvilleVaccine.Models.VaccineUse
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Record a Vaccine Use</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.VaccineUseId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VaccineUseId)
+                @Html.ValidationMessageFor(model => model.VaccineUseId)
+            </div>
+        </div>*@
+
+        <div class="col-md-4">
+            <div class="form-group" style="text-align:center"><strong>VACCINE USE</strong></div>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.vaccineID, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.vaccineID, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.vaccineID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lotNumber, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.lotNumber, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lotNumber)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.expdate, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.expdate)
+                    @Html.ValidationMessageFor(model => model.expdate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.patientID, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.patientID, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.patientID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VaccineUseDate, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.VaccineUseDate)
+                    @Html.ValidationMessageFor(model => model.VaccineUseDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.quantity, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.quantity, new { @type = "number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.quantity)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group" style="text-align:center"><strong>LEFT</strong></div>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LinjectionSite, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.LinjectionSite)
+                    @Html.ValidationMessageFor(model => model.LinjectionSite)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LIntradermal, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.LIntradermal)
+                    @Html.ValidationMessageFor(model => model.LIntradermal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LIntramuscular, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.LIntramuscular)
+                    @Html.ValidationMessageFor(model => model.LIntramuscular)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lnasal, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.lnasal)
+                    @Html.ValidationMessageFor(model => model.lnasal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lsub, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.lsub)
+                    @Html.ValidationMessageFor(model => model.lsub)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group" style="text-align:center"><strong>RIGHT</strong></div>
+            <hr />
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.RinjectionSite, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.RinjectionSite)
+                    @Html.ValidationMessageFor(model => model.RinjectionSite)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RIntradermal, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.RIntradermal)
+                    @Html.ValidationMessageFor(model => model.RIntradermal)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.RIntramuscular, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.RIntramuscular)
+                    @Html.ValidationMessageFor(model => model.RIntramuscular)
+                </div>
+            </div>
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.rnasal, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.rnasal)
+                    @Html.ValidationMessageFor(model => model.rnasal)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.rsub, new { @class = "control-label col-md-6" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.rsub)
+                    @Html.ValidationMessageFor(model => model.rsub)
+                </div>
+            </div>
+        </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-9 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

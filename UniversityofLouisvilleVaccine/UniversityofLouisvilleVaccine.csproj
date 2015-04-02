@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E920669A-E272-4994-83F5-1F065D7AE3C8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniversityofLouisvilleVaccine</RootNamespace>
+    <AssemblyName>UniversityofLouisvilleVaccine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Postal, Version=0.9.0.0, Culture=neutral, PublicKeyToken=45719375b8b4d528, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\postal.0.9.0\lib\net40\Postal.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\packages\Quartz.2.3.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\ApptController.cs" />
+    <Compile Include="Controllers\EmailLookupController.cs" />
+    <Compile Include="Controllers\GInfoController.cs" />
+    <Compile Include="Controllers\Grant2Controller.cs" />
+    <Compile Include="Controllers\GrantsController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\LandingController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="Controllers\VaccineNotificationController.cs" />
+    <Compile Include="Controllers\VaccineUseController.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VaccineController.cs" />
+    <Compile Include="Controllers\VendorController.cs" />
+    <Compile Include="DataContexts\AppointmentLookup.cs" />
+    <Compile Include="DataContexts\ApptDBContext.cs" />
+    <Compile Include="DataContexts\ApptMigrations\201503230506014_New.cs" />
+    <Compile Include="DataContexts\ApptMigrations\201503230506014_New.Designer.cs">
+      <DependentUpon>201503230506014_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\ApptMigrations\201503240323318_Brand New.cs" />
+    <Compile Include="DataContexts\ApptMigrations\201503240323318_Brand New.Designer.cs">
+      <DependentUpon>201503240323318_Brand New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\ApptMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\Elookup.cs" />
+    <Compile Include="DataContexts\ElookupMigrations\201503291456055_Initial Create.cs" />
+    <Compile Include="DataContexts\ElookupMigrations\201503291456055_Initial Create.Designer.cs">
+      <DependentUpon>201503291456055_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\ElookupMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\EmailLookup.cs" />
+    <Compile Include="DataContexts\EmaillookupMigrations\201503292225117_Initial.cs" />
+    <Compile Include="DataContexts\EmaillookupMigrations\201503292225117_Initial.Designer.cs">
+      <DependentUpon>201503292225117_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\EmaillookupMigrations\201503292246147_changed int to string.cs" />
+    <Compile Include="DataContexts\EmaillookupMigrations\201503292246147_changed int to string.Designer.cs">
+      <DependentUpon>201503292246147_changed int to string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\EmaillookupMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GInfo.cs" />
+    <Compile Include="DataContexts\GInfoMigrations\201503300112119_Initial.cs" />
+    <Compile Include="DataContexts\GInfoMigrations\201503300112119_Initial.Designer.cs">
+      <DependentUpon>201503300112119_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GInfoMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\Grants.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.Designer.cs">
+      <DependentUpon>201503290421367_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201503290540292_add file type.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290540292_add file type.Designer.cs">
+      <DependentUpon>201503290540292_add file type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201503290604284_Add Filepath.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290604284_Add Filepath.Designer.cs">
+      <DependentUpon>201503290604284_Add Filepath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201503290655017_Moved model props.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290655017_Moved model props.Designer.cs">
+      <DependentUpon>201503290655017_Moved model props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201503290702356_Add upload date.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290702356_Add upload date.Designer.cs">
+      <DependentUpon>201503290702356_Add upload date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201503290706342_Formats.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201503290706342_Formats.Designer.cs">
+      <DependentUpon>201503290706342_Formats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\Identity.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.Designer.cs">
+      <DependentUpon>201502230351497_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201503021910149_SecondCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201503021910149_SecondCreate.Designer.cs">
+      <DependentUpon>201503021910149_SecondCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201503021915459_SecondCreate1.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201503021915459_SecondCreate1.Designer.cs">
+      <DependentUpon>201503021915459_SecondCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\Vaccine.cs" />
+    <Compile Include="DataContexts\VaccineMigrations\201502230312066_Initial Create.cs" />
+    <Compile Include="DataContexts\VaccineMigrations\201502230312066_Initial Create.Designer.cs">
+      <DependentUpon>201502230312066_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineMigrations\201503211230395_Added new fields.cs" />
+    <Compile Include="DataContexts\VaccineMigrations\201503211230395_Added new fields.Designer.cs">
+      <DependentUpon>201503211230395_Added new fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineMigrations\201503240222579_New.cs" />
+    <Compile Include="DataContexts\VaccineMigrations\201503240222579_New.Designer.cs">
+      <DependentUpon>201503240222579_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineMigrations\201503240251154_Required.cs" />
+    <Compile Include="DataContexts\VaccineMigrations\201503240251154_Required.Designer.cs">
+      <DependentUpon>201503240251154_Required.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\VaccineNotification.cs" />
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201502222217005_Initial Create.cs" />
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201502222217005_Initial Create.Designer.cs">
+      <DependentUpon>201502222217005_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503222337552_Added Fields.cs" />
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503222337552_Added Fields.Designer.cs">
+      <DependentUpon>201503222337552_Added Fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503230021555_Added Name.cs" />
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503230021555_Added Name.Designer.cs">
+      <DependentUpon>201503230021555_Added Name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503230229275_Remove name.cs" />
+    <Compile Include="DataContexts\VaccineNotificationMigrations\201503230229275_Remove name.Designer.cs">
+      <DependentUpon>201503230229275_Remove name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineNotificationMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\VaccineUse.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201502230248440_Initial Create.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201502230248440_Initial Create.Designer.cs">
+      <DependentUpon>201502230248440_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineUseMigrations\201503030619227_Added injectionsites.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201503030619227_Added injectionsites.Designer.cs">
+      <DependentUpon>201503030619227_Added injectionsites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineUseMigrations\201503200219394_Add exp date.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201503200219394_Add exp date.Designer.cs">
+      <DependentUpon>201503200219394_Add exp date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineUseMigrations\201503291513257_Added email date.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201503291513257_Added email date.Designer.cs">
+      <DependentUpon>201503291513257_Added email date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineUseMigrations\201503291614236_removed email date.cs" />
+    <Compile Include="DataContexts\VaccineUseMigrations\201503291614236_removed email date.Designer.cs">
+      <DependentUpon>201503291614236_removed email date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VaccineUseMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\Vendor.cs" />
+    <Compile Include="DataContexts\VendorMigrations\201502230239179_Initial Create.cs" />
+    <Compile Include="DataContexts\VendorMigrations\201502230239179_Initial Create.Designer.cs">
+      <DependentUpon>201502230239179_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VendorMigrations\201503222033073_Add fields.cs" />
+    <Compile Include="DataContexts\VendorMigrations\201503222033073_Add fields.Designer.cs">
+      <DependentUpon>201503222033073_Add fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VendorMigrations\201503222036363_Removed duplicate id.cs" />
+    <Compile Include="DataContexts\VendorMigrations\201503222036363_Removed duplicate id.Designer.cs">
+      <DependentUpon>201503222036363_Removed duplicate id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\VendorMigrations\Configuration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ApplicationUserRole.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Elookup.cs" />
+    <Compile Include="Models\EmailLookup.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FilePath.cs" />
+    <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\GInfo.cs" />
+    <Compile Include="Models\Grants.cs" />
+    <Compile Include="Models\IdentityManager.cs" />
+    <Compile Include="Models\Vaccine.cs" />
+    <Compile Include="Models\VaccineNotification.cs" />
+    <Compile Include="Models\VaccineUse.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduledTasks\EmailJob.cs" />
+    <Compile Include="ScheduledTasks\JobScheduler.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Default Connection.mdf" />
+    <Content Include="App_Data\Default Connection_log.ldf">
+      <DependentUpon>Default Connection.mdf</DependentUpon>
+    </Content>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\UniversityofLouisvilleVaccine.dll" />
+    <Content Include="bin\UniversityofLouisvilleVaccine.pdb" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\animate.min - Copy.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker3.css" />
+    <Content Include="Content\font-awesome - Copy.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min - Copy.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.print.css" />
+    <Content Include="Content\Images\Attention.jpg" />
+    <Content Include="Content\Images\calendar.gif" />
+    <Content Include="Content\Images\Calendar.jpg" />
+    <Content Include="Content\Images\Chemware.png" />
+    <Content Include="Content\Images\Document.png" />
+    <Content Include="Content\Images\FullCalendar.jpg" />
+    <Content Include="Content\Images\FullCalendar.png" />
+    <Content Include="Content\Images\grantImage.jpg" />
+    <Content Include="Content\Images\grantImage.png" />
+    <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\message.png" />
+    <Content Include="Content\Images\partners\blessingslogo.png" />
+    <Content Include="Content\Images\slider\bg1.jpg" />
+    <Content Include="Content\Images\slider\bg2.jpg" />
+    <Content Include="Content\Images\Syringe.png" />
+    <Content Include="Content\Images\team\05.jpg" />
+    <Content Include="Content\Images\team\06.jpg" />
+    <Content Include="Content\Images\team\07.jpg" />
+    <Content Include="Content\Images\team\08.jpg" />
+    <Content Include="Content\Images\team\carrico.jpg" />
+    <Content Include="Content\Images\team\christensen.jpg" />
+    <Content Include="Content\Images\team\peyrani.jpg" />
+    <Content Include="Content\Images\team\ramirez.jpg" />
+    <Content Include="Content\Images\UofL.jpg" />
+    <Content Include="Content\Images\UofLLogo.jpg" />
+    <Content Include="Content\Images\uofllogo.png" />
+    <Content Include="Content\Images\User.png" />
+    <Content Include="Content\Images\usercontrolImage.png" />
+    <Content Include="Content\Images\userimage.png" />
+    <Content Include="Content\landing-bootstrap.min - Copy.css" />
+    <Content Include="Content\landing-bootstrap.min.css" />
+    <Content Include="Content\main - Copy.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\owl.carousel - Copy.css" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.transitions.css" />
+    <Content Include="Content\prettyPhoto.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\VaccineStyle.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\main - Copy.less" />
+    <Content Include="Content\main.less" />
+    <Content Include="bin\UniversityofLouisvilleVaccine.dll.config" />
+    <Content Include="FileUploads\test.docx" />
+    <Content Include="FileUploads\test777.pdf" />
+    <Content Include="Downloads\PatientHealthQuestionnaire.pdf" />
+    <Content Include="App_Data\Vacmdf" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\File Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\jasonsanchez819.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\jasonsanchez819.com - WebDeploy2.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\gcal.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.3.js" />
+    <Content Include="Scripts\jquery-ui-1.11.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\Images\animated-number\bg.jpg" />
+    <Content Include="Content\Images\blog\01.jpg" />
+    <Content Include="Content\Images\blog\02.jpg" />
+    <Content Include="Content\Images\blog\03.jpg" />
+    <Content Include="Content\Images\cta2\cta2-bg.jpg" />
+    <Content Include="Content\Images\cta2\cta2-img.png" />
+    <Content Include="Content\Images\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Content\Images\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Content\Images\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Content\Images\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Content\Images\ico\favicon.ico" />
+    <Content Include="Content\Images\main.png" />
+    <Content Include="Content\Images\portfolio\01.jpg" />
+    <Content Include="Content\Images\portfolio\02.jpg" />
+    <Content Include="Content\Images\portfolio\03.jpg" />
+    <Content Include="Content\Images\portfolio\04.jpg" />
+    <Content Include="Content\Images\portfolio\05.jpg" />
+    <Content Include="Content\Images\portfolio\06.jpg" />
+    <Content Include="Content\Images\portfolio\07.jpg" />
+    <Content Include="Content\Images\portfolio\08.jpg" />
+    <Content Include="Content\Images\portfolio\full.jpg" />
+    <Content Include="Content\Images\testimonial\01.jpg" />
+    <Content Include="Content\Images\testimonial\bg.jpg" />
+    <Content Include="Content\Images\work-process\bg.jpg" />
+    <Content Include="Views\Documents\js\bootstrap.min.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jquery.inview.min.js" />
+    <Content Include="Scripts\jquery.isotope.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\mousescroll.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\landing-respond.min.js" />
+    <Content Include="Scripts\smoothscroll.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Vaccine\Index.cshtml" />
+    <Content Include="Views\Vaccine\Create.cshtml" />
+    <Content Include="Views\Vaccine\Delete.cshtml" />
+    <Content Include="Views\Vaccine\Details.cshtml" />
+    <Content Include="Views\Vaccine\Edit.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\index.cshtml" />
+    <Content Include="Views\Landing\Landing.cshtml" />
+    <Content Include="Views\VaccineUse\Create.cshtml" />
+    <Content Include="Views\VaccineUse\Delete.cshtml" />
+    <Content Include="Views\VaccineUse\Details.cshtml" />
+    <Content Include="Views\VaccineUse\Edit.cshtml" />
+    <Content Include="Views\VaccineUse\Index.cshtml" />
+    <Content Include="Views\Appt\Create.cshtml" />
+    <Content Include="Views\Appt\Delete.cshtml" />
+    <Content Include="Views\Appt\Details.cshtml" />
+    <Content Include="Views\Appt\Edit.cshtml" />
+    <Content Include="Views\Appt\Index.cshtml" />
+    <Content Include="Views\Appt\PatientCreate.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\UserRoles.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SelectRoleEditorViewModel.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Shared\PatientLayout.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
+    <Content Include="Views\Emails\Warning.cshtml" />
+    <Content Include="Views\Grant2\Index.cshtml" />
+    <Content Include="Views\UploadFile\Index.cshtml" />
+    <Content Include="Views\UploadFile\Upload.cshtml" />
+    <Content Include="Views\Vendor\Create.cshtml" />
+    <Content Include="Views\Vendor\Delete.cshtml" />
+    <Content Include="Views\Vendor\Details.cshtml" />
+    <Content Include="Views\Vendor\Edit.cshtml" />
+    <Content Include="Views\Vendor\Index.cshtml" />
+    <Content Include="Views\VaccineNotification\Create.cshtml" />
+    <Content Include="Views\VaccineNotification\Delete.cshtml" />
+    <Content Include="Views\VaccineNotification\Details.cshtml" />
+    <Content Include="Views\VaccineNotification\Edit.cshtml" />
+    <Content Include="Views\VaccineNotification\Index.cshtml" />
+    <Content Include="Views\Appt\ReverseCalendar.cshtml" />
+    <Content Include="Views\Grants\Create.cshtml" />
+    <Content Include="Views\Grants\Delete.cshtml" />
+    <Content Include="Views\Grants\Details.cshtml" />
+    <Content Include="Views\Grants\Edit.cshtml" />
+    <Content Include="Views\Grants\Index.cshtml" />
+    <Content Include="Views\EmailLookup\Create.cshtml" />
+    <Content Include="Views\EmailLookup\Delete.cshtml" />
+    <Content Include="Views\EmailLookup\Details.cshtml" />
+    <Content Include="Views\EmailLookup\Edit.cshtml" />
+    <Content Include="Views\EmailLookup\Index.cshtml" />
+    <Content Include="Views\GInfo\Create.cshtml" />
+    <Content Include="Views\GInfo\Delete.cshtml" />
+    <Content Include="Views\GInfo\Details.cshtml" />
+    <Content Include="Views\GInfo\Edit.cshtml" />
+    <Content Include="Views\GInfo\Index.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Images\prettyPhoto\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Views\Documents\css\" />
+    <Folder Include="Views\Documents\fonts\" />
+    <Folder Include="Views\Documents\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataContexts\ApptMigrations\201503230506014_New.resx">
+      <DependentUpon>201503230506014_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\ApptMigrations\201503240323318_Brand New.resx">
+      <DependentUpon>201503240323318_Brand New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\ElookupMigrations\201503291456055_Initial Create.resx">
+      <DependentUpon>201503291456055_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\EmaillookupMigrations\201503292225117_Initial.resx">
+      <DependentUpon>201503292225117_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\EmaillookupMigrations\201503292246147_changed int to string.resx">
+      <DependentUpon>201503292246147_changed int to string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GInfoMigrations\201503300112119_Initial.resx">
+      <DependentUpon>201503300112119_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.resx">
+      <DependentUpon>201503290421367_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290540292_add file type.resx">
+      <DependentUpon>201503290540292_add file type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290604284_Add Filepath.resx">
+      <DependentUpon>201503290604284_Add Filepath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290655017_Moved model props.resx">
+      <DependentUpon>201503290655017_Moved model props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290702356_Add upload date.resx">
+      <DependentUpon>201503290702356_Add upload date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290706342_Formats.resx">
+      <DependentUpon>201503290706342_Formats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.resx">
+      <DependentUpon>201502230351497_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201503021910149_SecondCreate.resx">
+      <DependentUpon>201503021910149_SecondCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201503021915459_SecondCreate1.resx">
+      <DependentUpon>201503021915459_SecondCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineMigrations\201502230312066_Initial Create.resx">
+      <DependentUpon>201502230312066_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineMigrations\201503211230395_Added new fields.resx">
+      <DependentUpon>201503211230395_Added new fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineMigrations\201503240222579_New.resx">
+      <DependentUpon>201503240222579_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineMigrations\201503240251154_Required.resx">
+      <DependentUpon>201503240251154_Required.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineNotificationMigrations\201502222217005_Initial Create.resx">
+      <DependentUpon>201502222217005_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineNotificationMigrations\201503222337552_Added Fields.resx">
+      <DependentUpon>201503222337552_Added Fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineNotificationMigrations\201503230021555_Added Name.resx">
+      <DependentUpon>201503230021555_Added Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineNotificationMigrations\201503230229275_Remove name.resx">
+      <DependentUpon>201503230229275_Remove name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineUseMigrations\201502230248440_Initial Create.resx">
+      <DependentUpon>201502230248440_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineUseMigrations\201503030619227_Added injectionsites.resx">
+      <DependentUpon>201503030619227_Added injectionsites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineUseMigrations\201503200219394_Add exp date.resx">
+      <DependentUpon>201503200219394_Add exp date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineUseMigrations\201503291513257_Added email date.resx">
+      <DependentUpon>201503291513257_Added email date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VaccineUseMigrations\201503291614236_removed email date.resx">
+      <DependentUpon>201503291614236_removed email date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VendorMigrations\201502230239179_Initial Create.resx">
+      <DependentUpon>201502230239179_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VendorMigrations\201503222033073_Add fields.resx">
+      <DependentUpon>201503222033073_Add fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\VendorMigrations\201503222036363_Removed duplicate id.resx">
+      <DependentUpon>201503222036363_Removed duplicate id.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3040/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

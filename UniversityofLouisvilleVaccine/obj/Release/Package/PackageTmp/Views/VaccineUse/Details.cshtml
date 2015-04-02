@@ -1,0 +1,179 @@
+﻿@model UniversityofLouisvilleVaccine.Models.VaccineUse
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+
+	<hr />
+    <dl class="dl-horizontal col-md-4">
+        <h4 style="text-align:center">VACCINE USE</h4>
+        <hr />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.vaccineID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineID)
+        </dd>
+        
+        <br />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.lotNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lotNumber)
+        </dd>
+        
+        <br />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.expdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expdate)
+        </dd>
+
+        <br />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.patientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patientID)
+        </dd>
+
+        <br />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <br />
+        
+        <dt style="text-align:left">
+            @Html.DisplayNameFor(model => model.VaccineUseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaccineUseDate)
+        </dd>
+        
+        <br />
+
+    </dl>
+
+    <dl class="dl-horizontal col-md-4">
+        <h4 style="text-align:center">LEFT</h4>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.LinjectionSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinjectionSite)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.LIntradermal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIntradermal)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.LIntramuscular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIntramuscular)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.lnasal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lnasal)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.lsub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lsub)
+        </dd>
+        <br />
+        </dl>
+
+        <dl class="dl-horizontal col-md-4">
+        <h4 style="text-align:center">RIGHT</h4>
+        <hr />
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RinjectionSite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RinjectionSite)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.RIntradermal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RIntradermal)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.RIntramuscular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RIntramuscular)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.rnasal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rnasal)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.rsub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rsub)
+        </dd>
+        <br />
+        <br />
+        <br />
+        <br />
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VaccineUseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

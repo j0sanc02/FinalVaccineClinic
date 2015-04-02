@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UniversityofLouisvilleVaccine.Models.Grants>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<h2>Index of Grant Documents</h2>
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("UploadFile", "Grants", FormMethod.Post, new { enctype = "multipart/form-data", id = "UploadFilesForm" }))
+{
+    <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.docType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uploadDate)
+        </th>
+
+        <th>
+            @Html.Display("Document")
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) 
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.docType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Files)
+                @Html.ActionLink("Download", "Download", "Grants", new { document = item.fileName.ToString()})
+               
+
+                
+                @*<a class="btn btn-primary btn-md btn-danger" href="~/Documents/@item.Split('\\')[(item.Split('\\').Length -1)]" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;Download&nbsp;&nbsp;</a>
+                @item.Split('\\')[(item.Split('\\').Length - 1)]*@
+                
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+}

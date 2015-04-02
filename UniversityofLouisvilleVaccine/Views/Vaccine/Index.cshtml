@@ -1,0 +1,132 @@
+﻿@model IEnumerable<UniversityofLouisvilleVaccine.Models.Vaccine>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+<br />
+<br />
+<h2>Vaccine Inventory</h2>
+<hr />
+
+
+
+
+    @using (Html.BeginForm())
+{
+
+    <div class="col-md-1 btn btn-default">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "classname" })
+    </div>
+
+    @*<div class="col-md-3">
+        ID: @Html.TextBox("SearchID")
+        <input type="submit" value="Filter" />
+    </div>*@
+        
+    <div class=" col-md-4">
+        Name: @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" />
+    </div>
+    
+    <div class="col-md-3">
+        Lot #: @Html.DropDownList("lotNumber", " ")
+        <input type="submit" value="Filter"/>
+    </div>
+
+    <div class="col-md-1 btn btn-default">
+        @Html.ActionLink("Excel", "ExporttoExcel", "Vaccine")
+    </div>              
+ 
+    <br />
+    <table class="table table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vaccineID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vaccineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.dateReceived)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.CPT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ICD9Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NDC)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.leadTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lotNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.numofDoses)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.salesPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.expDate)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vaccineID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vaccineName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dateReceived)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.CPT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ICD9Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NDC)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.leadTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lotNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.numofDoses)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.salesPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.expDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    }      

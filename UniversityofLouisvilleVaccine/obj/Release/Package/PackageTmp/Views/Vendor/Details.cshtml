@@ -1,0 +1,109 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Vendor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Vendor Details</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorWebsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorAddress1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorAddress1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vendorAddress2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vendorAddress2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccines)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccines)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

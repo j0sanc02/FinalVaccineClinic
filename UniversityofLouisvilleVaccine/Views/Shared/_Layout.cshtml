@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - University of Louisville Vaccine Clinic</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fullcalendarcss")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="row" style="background-color:white; align-content:center">
+            <div class="container">
+                <img src="~/Content/Images/logo.png" alt="Banner Image" style="max-height:50px; float:right"/>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("UofL", "Index", "Index", null, new { @class = "navbar-brand" })
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vaccine<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Vaccine Inventory", "Index", "Vaccine")</li>
+                            <li>@Html.ActionLink("Use", "Index", "VaccineUse")</li>
+                            <li>@Html.ActionLink("Vendor Info", "Index", "Vendor")</li>
+                            @*<li>@Html.ActionLink("Notifications", "Index", "VaccineNotification")</li>*@
+                        </ul>
+                    </li>
+                        <li>@Html.ActionLink("Appointments", "Index", "Appt")</li>
+                        @*<li>@Html.ActionLink("Schedule an Appointment", "PatientCreate", "Appt")</li>*@
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Grant Management<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Grant", "Index", "Grants")</li>
+                            <li>@Html.ActionLink("Grant Info", "Index", "GInfo")</li>
+                        </ul>
+                    </li>
+                        @*<li>@Html.ActionLink("Users", "Index", "User")</li>*@
+                        <li>@Html.ActionLink("Users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/fullcalendarjs")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap-datepicker")
+    @RenderSection("scripts", required: false)
+    @section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+
+                $('.table').tablesorter();
+            });
+        });
+    </script>
+
+
+    @*<script type="text/javascript">
+        $('#datepicker').datepicker("setDate", today);
+        function today() {
+            var d = new Date();
+            var curr_date = d.getDate();
+            var curr_month = d.getMonth() + 1;
+            var curr_year = d.getFullYear();
+            document.write(curr_date + "-" + curr_month + "-" + curr_year
+                )
+        };
+    </script>*@
+    }
+
+</body>
+</html>

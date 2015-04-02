@@ -1,0 +1,82 @@
+﻿@model IEnumerable<UniversityofLouisvilleVaccine.Models.Appointment>
+
+@{
+    ViewBag.Title = "ReverseCalendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+
+
+
+
+<h2>ReverseCalendar</h2>
+
+ 
+
+<div class="col-md-10" id="datebox">
+    @Html.TextBoxFor(model =>model.start, new { @class = "form-control datepicker " })
+    @Html.ValidationMessageFor(model => model.start)
+    <br />
+
+</div>
+<div class="col-md-2">
+    <input type="submit" value="revcal" class="btn btn-default" />
+</div>
+
+
+<br />
+<table style="border:solid 1px">
+    <thead style="border:solid 1px">
+        <th style="border:solid 1px">Time</th>
+        <th style ="border:solid 1px; text-align:center">Appointment</th>
+        
+    </thead>
+
+
+        <tr style="border:solid 1px">
+        <td style="border:solid 1px">8:00</td>  
+        
+            
+        @if (Model.start ==  ViewBag.date && Model.hour == 8 && Model.min == 0)
+        {
+            <td>8:00</td>
+            <td style="border:solid 1px; align-content:center; width:300px; background-color:aqua" class="btn" disabled="disabled">8:00</td>
+        }
+        else
+        {
+            <td>8:00</td>
+            <td style="border:solid 1px; align-content:center; width:300px; background-color:aqua" class="btn">8:00</td>
+        }
+    </tr>
+
+    <tr style="border:solid 1px">
+        <td>&nbsp;</td>
+        <td style="border: solid 1px; align-content: center; width: 300px; background-color: aqua" class="btn">8:15</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>&nbsp</td>
+        <td style="border: solid 1px; align-content: center; width: 300px; background-color: aqua" class="btn">8:30</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>&nbsp</td>
+        <td style="border: solid 1px; align-content: center; width: 300px; background-color: aqua" class="btn">8:45</td>
+    </tr>
+
+        
+    
+    
+</table>
+@section Scripts {
+    
+    <script type="text/javascript">
+        $('.datepicker').datepicker({
+            dateFormat: "yy-mm-dd"
+        }).datepicker("setDate", "0"); //Initialise any date pickers
+   
+    </script>
+}
+

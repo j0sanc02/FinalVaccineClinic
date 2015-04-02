@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="server=sunflower.arvixe.com;database=Vac;uid=j0sanc02;password=sanchez819;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jpapp_000\\Desktop\\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Default Connection-Web.config Connection String" description="Default Connection Connection String used in web.config by the application to access the database." defaultValue="Default Connection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jpapp_000\\Desktop\\VaccineClinic-93fcbf4d2fcd35af6fc50d78a6bd3f3520b79340\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Default Connection']/@connectionString" />
+  </parameter>
+</parameters>

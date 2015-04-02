@@ -1,0 +1,91 @@
+﻿@model UniversityofLouisvilleVaccine.Models.GInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GInfo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.grantTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantFunder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantFunder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.collaborator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.collaborator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coordName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coordName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maxPages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maxPages)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

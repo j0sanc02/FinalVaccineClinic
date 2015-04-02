@@ -1,0 +1,160 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Vaccine
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<br />
+<br />
+<br />
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.vaccineID, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.vaccineID, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.vaccineID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.lotNumber, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.lotNumber, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.lotNumber)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.expDate, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.expDate, new { style = "width:175px", @class = "date-picker" })
+                    @Html.ValidationMessageFor(model => model.expDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.vaccineName, new { @class = "control-label col-md-4" })
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.vaccineName, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.vaccineName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.dateReceived, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.dateReceived)
+                    @Html.ValidationMessageFor(model => model.dateReceived)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CPT, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.CPT, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CPT)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ICD9Code, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.ICD9Code, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ICD9Code)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NDC, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.NDC, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NDC)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.leadTime, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.leadTime, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.leadTime)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5" style="text-align:left">
+            <div class="form-group">
+                @Html.LabelFor(model => model.numofDoses, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.numofDoses, new { @type = "number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.numofDoses)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.description, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextAreaFor(model => model.description, new {style="width:300px", rows=5, @class="form-control"})
+                    @Html.ValidationMessageFor(model => model.description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.inventoryWarning, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.inventoryWarning, new { @type = "number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.inventoryWarning)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.refugeePrice, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.refugeePrice, new { @type="number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.refugeePrice)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.clinicPrice, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.clinicPrice, new { @type = "number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.clinicPrice)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.salesPrice, new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.salesPrice, new { @type="number", style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.salesPrice)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-9 col-md-10">
+                <input type="submit" value="Edit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

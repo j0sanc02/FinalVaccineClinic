@@ -1,0 +1,72 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Grants
+
+@{
+    ViewBag.Title = "Create";
+
+    ViewBag.document = new SelectList(new List<string>() { "Budget Narrative", "Letter of Intent", "Resources", "Templates" });
+        
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Grants", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Grants</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.docType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.docType, (SelectList)ViewBag.document, new { style = "width:175px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.docType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fileName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.fileName, new { style = "width:175px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.fileName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.uploadDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.uploadDate)
+                @Html.ValidationMessageFor(model => model.uploadDate)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.Label("Document", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Document" name="upload" />
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(m => m.fileType, "Additional Document", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.fileType, null, new { type = "file", @class = "input-file" })
+                @Html.ValidationMessageFor(model => model.fileType, "", new { @class = "text-danger" })
+
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

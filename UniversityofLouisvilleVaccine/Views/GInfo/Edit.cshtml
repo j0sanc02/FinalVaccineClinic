@@ -1,0 +1,102 @@
+﻿@model UniversityofLouisvilleVaccine.Models.GInfo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>GInfo</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grantTitle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grantTitle)
+                @Html.ValidationMessageFor(model => model.grantTitle)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grantStart, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grantStart)
+                @Html.ValidationMessageFor(model => model.grantStart)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grantEnd, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grantEnd)
+                @Html.ValidationMessageFor(model => model.grantEnd)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grantAmount, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grantAmount)
+                @Html.ValidationMessageFor(model => model.grantAmount)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grantFunder, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grantFunder)
+                @Html.ValidationMessageFor(model => model.grantFunder)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.collaborator, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.collaborator)
+                @Html.ValidationMessageFor(model => model.collaborator)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.coordName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.coordName)
+                @Html.ValidationMessageFor(model => model.coordName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.deadline, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.deadline)
+                @Html.ValidationMessageFor(model => model.deadline)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.maxPages, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.maxPages)
+                @Html.ValidationMessageFor(model => model.maxPages)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

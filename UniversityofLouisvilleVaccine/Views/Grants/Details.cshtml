@@ -1,0 +1,58 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Grants
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Grants</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.docType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uploadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uploadDate)
+        </dd>
+
+        <dd>
+            
+            @Html.ActionLink("Download", "Download", "Grants", new { document = Model.fileName.ToString() })
+        </dd>
+        @*<dd class="col-md-10">
+            @if (Model.fileType == null)
+            {
+                <p>This vendor does not have a W-9 on file</p>
+            }
+            else
+            {
+                @Html.ActionLink("Download", "Download", new { path = Model.fileType })
+            }
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

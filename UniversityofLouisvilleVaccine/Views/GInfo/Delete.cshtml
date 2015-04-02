@@ -1,0 +1,97 @@
+﻿@model UniversityofLouisvilleVaccine.Models.GInfo
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.grantTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grantFunder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grantFunder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.collaborator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.collaborator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coordName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coordName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maxPages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maxPages)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

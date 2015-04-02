@@ -1,0 +1,124 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Appointment
+
+@{
+    ViewBag.Title = "PatientCreate";
+
+    ViewBag.HoursList = new SelectList(new List<double>() { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 });
+    ViewBag.MinsList = new SelectList(new List<double>() { 0, 15, 30, 45 });
+    
+    Layout = "~/Views/Shared/PatientLayout.cshtml";
+}
+
+<div class=" col-md-5">
+    <br />
+    <br />
+    <br />
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h3>Schedule an appointment</h3>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.title, new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.title, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.title)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.start, new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.start, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.start)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.hour, new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(model => model.hour, (SelectList)ViewBag.HoursList, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.hour)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.min, new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.DropDownListFor(model => model.min, (SelectList)ViewBag.MinsList, new { style = "width:175px", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.min)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="col-md-7">
+    <br />
+    <br />
+    <br />
+    <h3>Scheduled Appointments</h3>
+    <div id="calendar"></div>
+</div>
+
+
+@section scripts{
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+$(document).ready(function(){
+
+alert('@ViewBag.Message');
+   
+});
+
+    </script>
+    
+}
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+
+                //theme: true,
+
+                defaultView: 'agendaDay',
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                defaultTimedEventDuration: 15,
+                forceEventDuration: true,
+                //eventSource: [events]
+                events: "/home/getevents"
+            });
+        });
+
+
+    </script>
+@Scripts.Render("~/bundles/jqueryval")
+
+}
+
+

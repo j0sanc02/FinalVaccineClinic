@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+
+@model IEnumerable<string>
+
+@{
+
+}
+
+
+@using (Html.BeginForm("UploadFile", "Grant2", FormMethod.Post, new { enctype = "multipart/form-data", id = "UploadFilesForm" }))
+{
+
+
+    <br>
+    <br>
+    <br>
+    <h2>Grant Management</h2>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <a class="btn btn-primary btn-danger" action=@Html.ActionLink("Upload File","Index","UploadFile")
+                <br />
+                <br />
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <h3>List Of Uploaded Files:</h3>
+        <br />
+
+
+        @foreach (var item in Model)
+        {
+
+            <a class="btn btn-primary btn-md btn-danger" href="~/FileUploads/@item.Split('\\')[(item.Split('\\').Length-1)]" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;Download&nbsp;&nbsp;</a>
+            @item.Split('\\')[(item.Split('\\').Length-1)]
+            @*<img style="width:30px;height:24px;padding-left:10px;margin-bottom:5px;" src="~/FileUploads/@item.Split('\\')[(item.Split('\\').Length-1)]" alt="@item.Split('\\')[(item.Split('\\').Length-1)]" />*@
+            <br>
+            <br />
+        }
+    </div>
+}
+
+
+
+

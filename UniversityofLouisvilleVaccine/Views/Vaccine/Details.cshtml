@@ -1,0 +1,144 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Vaccine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>Vaccine</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccineID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vaccineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vaccineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lotNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lotNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateReceived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateReceived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD9Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD9Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NDC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NDC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numofDoses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numofDoses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.inventoryWarning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inventoryWarning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.refugeePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.refugeePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clinicPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clinicPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salesPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesPrice)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.vaccineID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

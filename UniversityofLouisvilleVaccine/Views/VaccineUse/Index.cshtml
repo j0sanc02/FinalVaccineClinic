@@ -1,0 +1,133 @@
+﻿@model IEnumerable<UniversityofLouisvilleVaccine.Models.VaccineUse>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Vaccine Uses</h2>
+<hr />
+
+<div class="col-md-1 btn btn-default">
+    @Html.ActionLink("Create New", "Create")
+</div>
+    <table class="table table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.vaccineID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lotNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.expdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.patientID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LinjectionSite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RinjectionSite)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.LIntradermal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RIntradermal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LIntramuscular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RIntramuscular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.lnasal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.rnasal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.lsub)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.rsub)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VaccineUseDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vaccineID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lotNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.expdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.patientID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LinjectionSite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RinjectionSite)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.LIntradermal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RIntradermal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LIntramuscular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RIntramuscular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lnasal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rnasal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lsub)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rsub)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VaccineUseDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.VaccineUseId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.VaccineUseId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.VaccineUseId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+

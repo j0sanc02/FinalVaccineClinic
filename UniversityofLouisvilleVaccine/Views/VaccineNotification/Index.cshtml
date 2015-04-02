@@ -1,0 +1,64 @@
+﻿@model IEnumerable<UniversityofLouisvilleVaccine.Models.VaccineNotification>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.vaccineID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vaccineName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lotNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numofDoses)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.warning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notificationchecked)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vaccineID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vaccineName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lotNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numofDoses)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.warning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notificationchecked)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NotificationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NotificationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NotificationID })
+        </td>
+    </tr>
+}
+
+</table>

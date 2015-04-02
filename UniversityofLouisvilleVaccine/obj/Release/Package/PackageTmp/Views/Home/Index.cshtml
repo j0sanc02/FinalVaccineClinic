@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<head>
+    <title>
+        Home Page
+    </title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/HomeStyle.css">
+</head>
+
+<br />
+<br />
+<br />
+@*<div class="alert alert-warning" role="alert" style="text-align:center">Vaccine Alerts! Vaccines need to be ordered.<br /><a href="#" class="btn btn-danger">Go to Vaccine Inventory</a></div>*@
+
+<div class="row">
+    <p>
+         <div class="row">
+            <div class="col-md-5">
+                <h3>Message Center</h3>
+                <!-- BEGIN CBOX - www.cbox.ws - v4.2 -->
+                <div id="cboxdiv" style="position: relative; margin: 0 auto; max-width: 100%; font-size: 0; line-height: 0;">
+                    <div style="position: relative; max-height: 305px; overflow: auto; overflow-y: auto; -webkit-overflow-scrolling: touch; border:#ababab 1px solid;"><iframe src="//www4.cbox.ws/box/?boxid=4254552&boxtag=3enljc&sec=main" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="100%" scrolling="auto" allowtransparency="yes" name="cboxmain4-4254552" id="cboxmain4-4254552"></iframe></div>
+                    <div style="position: relative; max-height: 75px; overflow: hidden; border:#ababab 1px solid; border-top: 0px;"><iframe src="//www4.cbox.ws/box/?boxid=4254552&boxtag=3enljc&sec=form" marginheight="0" marginwidth="0" frameborder="0" width="100%" height="100%" scrolling="no" allowtransparency="yes" name="cboxform4-4254552" id="cboxform4-4254552"></iframe></div>
+                </div>
+                <!-- END CBOX -->
+            </div>
+            <div class="col-md-7">
+                <h3>Appointments</h3>
+                <div id="calendar"></div>
+
+                @section scripts{
+                    <script type="text/javascript">
+
+
+                        $(document).ready(function () {
+
+                            $('#calendar').fullCalendar({
+                                header: {
+                                    left: 'prev,next today',
+                                    center: 'title',
+                                    right: 'month,agendaWeek,agendaDay'
+                                },
+
+                                //theme: true,
+
+                                defaultView: 'agendaDay',
+                                editable: true,
+                                allDaySlot: false,
+                                selectable: true,
+                                slotMinutes: 15,
+                                defaultTimedEventDuration: 15,
+                                forceEventDuration: true,
+                                //eventSource: [events]
+                                events: "/home/getevents"
+                            });
+                        });
+
+
+                    </script>
+                }
+            </div>
+        </div>
+</div>
+
+
+<br />
+<br />
