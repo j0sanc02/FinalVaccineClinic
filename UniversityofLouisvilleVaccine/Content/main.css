@@ -27,7 +27,7 @@ h6 {
   color: #272727;
 }
 a {
-  color: #AC0B13;
+  color: #ad0000;
   -webkit-transition: color 400ms, background-color 400ms;
   -moz-transition: color 400ms, background-color 400ms;
   -o-transition: color 400ms, background-color 400ms;
@@ -83,20 +83,19 @@ hr {
   margin-left: -12px;
   border: 5px solid #fff;
   border-radius: 20px;
-  background: #AC0B13;
+  background: #ad0000;
 }
 .btn {
   border-width: 0;
-  border-bottom-width: 3px;
   border-radius: 3px;
 }
 .btn.btn-primary {
-  background: #AC0B13;
-  border-color: #AC0B13;
+  background: #ad0000;
+  border-color: #ad0000;
 }
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-  background: #000;
+  background: #8A0000;
 }
 .column-title {
   margin-top: 0;
@@ -111,7 +110,7 @@ hr {
   bottom: -1px;
   left: 0;
   width: 40%;
-  border-bottom: 1px solid #AC0B13;
+  border-bottom: 1px solid #ad0000;
 }
 ul.nostyle {
   list-style: none;
@@ -119,7 +118,7 @@ ul.nostyle {
   margin-bottom: 20px;
 }
 ul.nostyle i {
-  color: #AC0B13;
+  color: #ad0000;
 }
 .scaleIn {
   -webkit-animation-name: scaleIn;
@@ -183,7 +182,7 @@ ul.nostyle i {
   #main-menu.navbar-default .navbar-nav > li:hover > a {
     background: transparent;
     padding-top: 37px;
-    border-top: 3px solid #AC0B13;
+    border-top: 3px solid #ad0000;
   }
   #main-menu.navbar-default .dropdown-menu {
     padding: 0 20px;
@@ -272,7 +271,7 @@ ul.nostyle i {
 }
 #main-slider .owl-prev:hover,
 #main-slider .owl-next:hover {
-  background-color: #AC0B13;
+  background-color: #ad0000;
 }
 #main-slider .owl-prev {
   left: -35px;
@@ -286,7 +285,7 @@ ul.nostyle i {
   width: 100%;
   max-width: 100%;
   height: 4px;
-  background: #AC0B13;
+  background: #ad0000;
 }
 #progressBar {
   margin-top: -4px;
@@ -344,7 +343,7 @@ ul.nostyle i {
   text-align: center;
   width: 64px;
   border-radius: 100%;
-  color: #AC0B13;
+  color: #ad0000;
   box-shadow: inset 0 0 0 1px #d7d7d7;
   -webkit-box-shadow: inset 0 0 0 1px #d7d7d7;
   transition: background-color 400ms, background-color 400ms;
@@ -360,15 +359,16 @@ ul.nostyle i {
   right: -10px;
   border: 4px solid #fff;
   border-radius: 20px;
-  background: #AC0B13;
+  background: #ad0000;
 }
 .media.service-box:hover .pull-left > i {
-  background-image: -moz-linear-gradient(90deg, #000 0%, #000 100%);
+  /*background-image: -moz-linear-gradient(90deg, #000 0%, #000 100%);
   background-image: -webkit-linear-gradient(90deg, #000 0%, #000 100%);
-  background-image: -ms-linear-gradient(90deg, #000 0%, #000 100%);
+  background-image: -ms-linear-gradient(90deg, #000 0%, #000 100%);*/
   color: #fff;
   box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
   -webkit-box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.8);
+  background-color: #a80000;
 }
 #portfolio {
   padding: 100px 0;
@@ -393,7 +393,7 @@ ul.nostyle i {
 }
 #portfolio .portfolio-filter > li a:hover,
 #portfolio .portfolio-filter > li a.active {
-  background: #AC0B13;
+  background: #ad0000;
   color: #fff;
   box-shadow: 0 -3px 0 0 #318daf inset;
   -webkit-box-shadow: 0 -3px 0 0 #318daf inset;
