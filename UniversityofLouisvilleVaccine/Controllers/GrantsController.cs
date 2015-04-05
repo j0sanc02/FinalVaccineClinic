@@ -17,8 +17,47 @@ namespace UniversityofLouisvilleVaccine.Controllers
         private GrantsDBContext db = new GrantsDBContext();
 
         // GET: /Grants/
-        public ActionResult Index()
+        public ActionResult Index(string sortby)
         {
+            ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.DocTypeSort = sortby == "doc type" ? "doc type desc" : "doc type";
+            ViewBag.FileNameSort = sortby == "fName" ? "fName desc" : "fName";
+            ViewBag.UpDateSort = sortby == "up date" ? "up date desc" : "up date type";
+
+
+            var grants = from a in db.Grant select a;
+            switch (sortby)
+            {
+                case "Name desc":
+                    grants = grants.OrderByDescending(s => s.fileName);
+                    break;
+                case "Name":
+                    grants = grants.OrderBy(s => s.fileName);
+                    break;
+                case "fName desc":
+                    grants = grants.OrderByDescending(s => s.fileName);
+                    break;
+                case "fName":
+                    grants = grants.OrderBy(s => s.fileName);
+                    break;
+                case "doc type":
+                    grants = grants.OrderBy(s => s.docType);
+                    break;
+                case "doc type desc":
+                    grants = grants.OrderByDescending(s => s.docType);
+                    break;
+                case "up date":
+                    grants = grants.OrderBy(s => s.uploadDate);
+                    break;
+                case "up date desc":
+                    grants = grants.OrderByDescending(s => s.uploadDate);
+                    break;
+                default:
+                    grants = grants.OrderBy(s => s.fileName);
+                    break;
+            }
+
+            return View(grants);
 
             string[] dirs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"Documents\", "*.*");
             ViewBag.filename = dirs.ToString();
@@ -156,11 +195,17 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // POST: /Grants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, string document)
         {
             Grants grants = db.Grant.Find(id);
             db.Grant.Remove(grants);
             db.SaveChanges();
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Documents/";
+            if (System.IO.File.Exists(path + document))
+            {
+
+                System.IO.File.Delete(path + document);
+            }
             return RedirectToAction("Index");
         }
 
@@ -177,7 +222,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "Documents/";
             string fileName = document;
-            return File(path + fileName, "text/plain", "test.txt");
+            return File(path + fileName, "text/plain", document);
 
         }
 

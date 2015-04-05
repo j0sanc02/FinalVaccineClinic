@@ -16,10 +16,70 @@ namespace UniversityofLouisvilleVaccine.Controllers
         private GInfoDBContext db = new GInfoDBContext();
 
         // GET: /GInfo/
-        public ActionResult Index()
+        public ActionResult Index(string sortby)
         {
-            return View(db.GInfos.ToList());
+            ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.gNameSort = sortby == "gName" ? "gName desc" : "gName";
+            ViewBag.EndDateSort = sortby == "end date" ? "end date desc" : "end date";
+            ViewBag.AmountSort = sortby == "amount" ? "amount desc" : "amount";
+            ViewBag.SponsorSort = sortby == "sponsor" ? "sponsor desc" : "sponsor";
+            ViewBag.CoordNameSort = sortby == "coord name" ? "coord name desc" : "coord name";
+            ViewBag.DeadlineSort = sortby == "deadline" ? "deadline desc" : "deadline";
+
+            var grants = from a in db.GInfos select a;
+            switch (sortby)
+            {
+                case "Name desc":
+                    grants = grants.OrderByDescending(s => s.grantTitle);
+                    break;
+                case "Name":
+                    grants = grants.OrderBy(s => s.grantTitle);
+                    break;
+                case "gName desc":
+                    grants = grants.OrderByDescending(s => s.grantTitle);
+                    break;
+                case "gName":
+                    grants = grants.OrderBy(s => s.grantTitle);
+                    break;
+                case "end date":
+                    grants = grants.OrderBy(s => s.grantEnd);
+                    break;
+                case "end date desc":
+                    grants = grants.OrderByDescending(s => s.grantEnd);
+                    break;
+                case "amount":
+                    grants = grants.OrderBy(s => s.grantAmount);
+                    break;
+                case "amount desc":
+                    grants = grants.OrderByDescending(s => s.grantAmount);
+                    break;
+                case "sponsor":
+                    grants = grants.OrderBy(s => s.grantFunder);
+                    break;
+                case "sponsor desc":
+                    grants = grants.OrderByDescending(s => s.grantFunder);
+                    break;
+                case "coord name":
+                    grants = grants.OrderBy(s => s.coordName);
+                    break;
+                case "coord name desc":
+                    grants = grants.OrderByDescending(s => s.coordName);
+                    break;
+                case "deadline":
+                    grants = grants.OrderBy(s => s.deadline);
+                    break;
+                case "deadline desc":
+                    grants = grants.OrderByDescending(s => s.deadline);
+                    break;
+                default:
+                    grants = grants.OrderBy(s => s.grantTitle);
+                    break;
+            }
+
+            return View(grants);
+            
         }
+           
 
         // GET: /GInfo/Details/5
         public ActionResult Details(int? id)

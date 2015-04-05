@@ -18,9 +18,55 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
         // GET: /Appt/
         //[Authorize(Roles = "Admin, Executive, ProgramStaff")]
-        public ActionResult Index()
+        public ActionResult Index(string sortby)
         {
-            return View(db.Appointments.ToList());
+             ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.aNameSort = sortby == "aName" ? "aName desc" : "aName";
+            ViewBag.StartDateSort = sortby == "startdate" ? "startdate desc" : "startdate";
+            ViewBag.HourSort = sortby == "hour" ? "hour desc" : "hour";
+            ViewBag.MinuteSort = sortby == "minute" ? "minute desc" : "minute";
+
+            var appts = from a in db.Appointments select a;
+            switch (sortby)
+            {
+                case "Name desc":
+                    appts = appts.OrderByDescending(s => s.title);
+                    break;
+                case "Name":
+                    appts = appts.OrderBy(s => s.title);
+                    break;
+                case "aName":
+                    appts = appts.OrderBy(s => s.title);
+                    break;
+                case "aName desc":
+                    appts = appts.OrderByDescending(s => s.title);
+                    break;
+                case "startdate":
+                    appts = appts.OrderBy(s => s.start);
+                    break;
+                case "startdate desc":
+                    appts = appts.OrderByDescending(s => s.start);
+                    break;
+                case "hour":
+                    appts = appts.OrderBy(s => s.hour);
+                    break;
+                case "hour desc":
+                    appts = appts.OrderByDescending(s => s.hour);
+                    break;
+                case "minute":
+                    appts = appts.OrderBy(s => s.min);
+                    break;
+                case "minute desc":
+                    appts = appts.OrderByDescending(s => s.min);
+                    break;
+
+                default:
+                    appts = appts.OrderBy(s => s.title);
+                    break;
+            }
+
+            return View(appts);
+     
         }
 
         // GET: /Appt/Details/5

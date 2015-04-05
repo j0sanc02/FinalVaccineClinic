@@ -26,25 +26,68 @@ namespace UniversityofLouisvilleVaccine.Controllers
         {
 
             ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
-            ViewBag.DescSort = sortby == "Description" ? "Description desc" : "Description";
+            ViewBag.DescSort = sortby == "vacID" ? "vacID desc" : "vacID";
+            ViewBag.DateSort = sortby == "recDate" ? "rec_date_desc" : "recDate";
+            ViewBag.LeadTimeSort = sortby == "lead time" ? "lead time desc" : "lead time";
+            ViewBag.LotNumSort = sortby == "lot num" ? "lot num desc" : "lot num";
+            ViewBag.QuantRemSort = sortby == "quant rem" ? "quant rem desc" : "quant rem";
+            ViewBag.CostSort = sortby == "cost" ? "cost desc" : "cost";
+            ViewBag.ExpDateSort = sortby == "exp date" ? "exp date desc" : "exp date";
+
 
             var vaccines = from v in db.Vaccines select v;
-            switch(sortby)
+            switch (sortby)
             {
                 case "Name desc":
-                    vaccines = vaccines.OrderByDescending(s=>s.vaccineName);
+                    vaccines = vaccines.OrderByDescending(s => s.vaccineName);
                     break;
                 case "Name":
                     vaccines = vaccines.OrderBy(s => s.vaccineName);
                     break;
-                case "Description desc":
+                case "vacID desc":
                     vaccines = vaccines.OrderByDescending(s => s.vaccineID);
                     break;
-                case "Description":
-                    vaccines = vaccines.OrderBy(s=>s.vaccineID);
+                case "vacID":
+                    vaccines = vaccines.OrderBy(s => s.vaccineID);
+                    break;
+                case "recDate":
+                    vaccines = vaccines.OrderBy(s => s.dateReceived);
+                    break;
+                case "rec_date_desc":
+                    vaccines = vaccines.OrderByDescending(s => s.dateReceived);
+                    break;
+                case "lead time":
+                    vaccines = vaccines.OrderBy(s => s.leadTime);
+                    break;
+                case "lead time desc":
+                    vaccines = vaccines.OrderByDescending(s => s.leadTime);
+                    break;
+                case "lot num":
+                    vaccines = vaccines.OrderBy(s => s.lotNumber);
+                    break;
+                case "lot num desc":
+                    vaccines = vaccines.OrderByDescending(s => s.lotNumber);
+                    break;
+                case "quant rem":
+                    vaccines = vaccines.OrderBy(s => s.numofDoses);
+                    break;
+                case "quant rem desc":
+                    vaccines = vaccines.OrderByDescending(s => s.numofDoses);
+                    break;
+                case "cost":
+                    vaccines = vaccines.OrderBy(s => s.salesPrice);
+                    break;
+                case "cost desc":
+                    vaccines = vaccines.OrderByDescending(s => s.salesPrice);
+                    break;
+                case "exp date":
+                    vaccines = vaccines.OrderBy(s => s.expDate);
+                    break;
+                case "exp date desc":
+                    vaccines = vaccines.OrderByDescending(s => s.expDate);
                     break;
                 default:
-                    vaccines=vaccines.OrderBy(s=>s.vaccineName);
+                    vaccines = vaccines.OrderBy(s => s.vaccineName);
                     break;
 
             }

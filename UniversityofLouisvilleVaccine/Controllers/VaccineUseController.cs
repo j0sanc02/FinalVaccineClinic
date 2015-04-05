@@ -19,9 +19,84 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
         // GET: /VaccineUse/
         //[Authorize(Roles = "Admin, Executive, ProgramStaff, Researcher")]
-        public ActionResult Index()
+        public ActionResult Index(string sortby)
         {
-            return View(db.VaccineUses.ToList());
+            ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.DescSort = sortby == "vacID" ? "vacID desc" : "vacID";
+            ViewBag.LotNumSort = sortby == "lot num" ? "lot num desc" : "lot num";
+            ViewBag.ExpDateSort = sortby == "exp date" ? "exp date desc" : "exp date";
+            ViewBag.PatIDSort = sortby == "patID" ? "patID desc" : "patID";
+            ViewBag.LeftArmSort = sortby == "lArm" ? "lArm desc" : "lArm";
+            ViewBag.RightArmSort = sortby == "rArm" ? "rArm desc" : "rARm";
+            ViewBag.QuantRemSort = sortby == "quant rem" ? "quant rem desc" : "quant rem";
+            ViewBag.UseDateSort = sortby == "use date" ? "use date desc" : "use date";
+
+
+            var vaccines = from v in db.VaccineUses select v;
+            switch (sortby)
+            {
+                case "Name desc":
+                    vaccines = vaccines.OrderByDescending(s => s.vaccineID);
+                    break;
+                case "Name":
+                    vaccines = vaccines.OrderBy(s => s.vaccineID);
+                    break;
+                case "vacID desc":
+                    vaccines = vaccines.OrderByDescending(s => s.vaccineID);
+                    break;
+                case "vacID":
+                    vaccines = vaccines.OrderBy(s => s.vaccineID);
+                    break;
+                case "lot num":
+                    vaccines = vaccines.OrderBy(s => s.lotNumber);
+                    break;
+                case "lot num desc":
+                    vaccines = vaccines.OrderByDescending(s => s.lotNumber);
+                    break;
+                case "exp date":
+                    vaccines = vaccines.OrderBy(s => s.expdate);
+                    break;
+                case "exp date desc":
+                    vaccines = vaccines.OrderByDescending(s => s.expdate);
+                    break;
+                case "patID":
+                    vaccines = vaccines.OrderBy(s => s.patientID);
+                    break;
+                case "patID desc":
+                    vaccines = vaccines.OrderByDescending(s => s.patientID);
+                    break;
+                case "lArm":
+                    vaccines = vaccines.OrderBy(s => s.LinjectionSite);
+                    break;
+                case "lArm desc":
+                    vaccines = vaccines.OrderByDescending(s => s.LinjectionSite);
+                    break;
+                case "rArm":
+                    vaccines = vaccines.OrderBy(s => s.RinjectionSite);
+                    break;
+                case "rArm desc":
+                    vaccines = vaccines.OrderByDescending(s => s.RinjectionSite);
+                    break;
+                case "quant rem":
+                    vaccines = vaccines.OrderBy(s => s.quantity);
+                    break;
+                case "quant rem desc":
+                    vaccines = vaccines.OrderByDescending(s => s.quantity);
+                    break;
+                case "use date":
+                    vaccines = vaccines.OrderBy(s => s.VaccineUseDate);
+                    break;
+                case "use date desc":
+                    vaccines = vaccines.OrderByDescending(s => s.VaccineUseDate);
+                    break;
+
+                default:
+                    vaccines = vaccines.OrderBy(s => s.vaccineID);
+                    break;
+            }
+
+
+            return View(vaccines);
         }
 
         // GET: /VaccineUse/Details/5

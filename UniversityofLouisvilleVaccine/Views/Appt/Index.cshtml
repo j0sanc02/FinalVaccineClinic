@@ -17,16 +17,20 @@
             <table class="table table-striped table-hover table-responsive">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.title)
+                    @*@Html.DisplayNameFor(model => model.title)*@
+                    @Html.ActionLink("Name", "Index", new { sortBy = ViewBag.aNameSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.start)
+                    @*@Html.DisplayNameFor(model => model.start)*@
+                    @Html.ActionLink("Start Date", "Index", new { sortBy = ViewBag.StartDateSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.hour)
+                    @*@Html.DisplayNameFor(model => model.hour)*@
+                    @Html.ActionLink("Hour", "Index", new { sortBy = ViewBag.HourSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.min)
+                    @*@Html.DisplayNameFor(model => model.min)*@
+                    @Html.ActionLink("Minute", "Index", new { sortBy = ViewBag.MinuteSort })
                 </th>
                 @*<th>
                         @Html.DisplayNameFor(model => model.end)

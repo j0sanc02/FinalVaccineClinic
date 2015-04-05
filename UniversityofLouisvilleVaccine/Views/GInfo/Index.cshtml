@@ -15,22 +15,28 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.grantTitle)
+                @*@Html.DisplayNameFor(model => model.grantTitle)*@
+                @Html.ActionLink("Grant Title", "Index", new { sortBy = ViewBag.gNameSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.grantEnd)
+                @*@Html.DisplayNameFor(model => model.grantEnd)*@
+                @Html.ActionLink("End Date", "Index", new { sortBy = ViewBag.EndDateSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.grantAmount)
+                @*@Html.DisplayNameFor(model => model.grantAmount)*@
+                @Html.ActionLink("Amount", "Index", new { sortBy = ViewBag.AmountSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.grantFunder)
+                @*@Html.DisplayNameFor(model => model.grantFunder)*@
+                @Html.ActionLink("Sponsor", "Index", new { sortBy = ViewBag.SponsorSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.coordName)
+                @*@Html.DisplayNameFor(model => model.coordName)*@
+                @Html.ActionLink("Coordinator Name", "Index", new { sortBy = ViewBag.CoordNameSort })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.deadline)
+                @*@Html.DisplayNameFor(model => model.deadline)*@
+                @Html.ActionLink("Deadline", "Index", new { sortBy = ViewBag.DeadlineSort })
             </th>
 
             <th></th>

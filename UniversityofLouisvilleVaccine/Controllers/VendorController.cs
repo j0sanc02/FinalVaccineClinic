@@ -19,10 +19,92 @@ namespace UniversityofLouisvilleVaccine.Controllers
         private VendorDBContext db = new VendorDBContext();
 
         // GET: /Vendor/
-        public ActionResult Index(string sstring)
+        public ActionResult Index(string sstring, string sortby)
         {
-            var vendor = from ve in db.Vendors 
+            ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
+            ViewBag.vNameSort = sortby == "vName" ? "vName desc" : "vName";
+            ViewBag.TelNumSort = sortby == "telnum" ? "telnum desc" : "telnum";
+            ViewBag.FaxNumSort = sortby == "faxnum" ? "faxnum desc" : "faxnum";
+            ViewBag.EmailSort = sortby == "email" ? "email desc" : "email";
+            ViewBag.WebSiteSort = sortby == "website" ? "website desc" : "website";
+            ViewBag.CitySort = sortby == "city" ? "city desc" : "city";
+            ViewBag.StateSort = sortby == "state" ? "state desc" : "state";
+            ViewBag.ZipSort = sortby == "zip" ? "zip desc" : "zip";
+            ViewBag.VaccineSort = sortby == "vaccines" ? "vaccines desc" : "vaccines";
+
+
+
+            var vendor = from ve in db.Vendors
                          select ve;
+            switch (sortby)
+            {
+                case "Name desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorName);
+                    break;
+                case "Name":
+                    vendor = vendor.OrderBy(s => s.vendorName);
+                    break;
+                case "vName":
+                    vendor = vendor.OrderBy(s => s.vendorName);
+                    break;
+                case "vName desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorName);
+                    break;
+                case "telnum":
+                    vendor = vendor.OrderBy(s => s.vendorPhone);
+                    break;
+                case "telnum desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorPhone);
+                    break;
+                case "faxnum":
+                    vendor = vendor.OrderBy(s => s.vendorFax);
+                    break;
+                case "faxnum desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorFax);
+                    break;
+                case "email":
+                    vendor = vendor.OrderBy(s => s.vendorEmail);
+                    break;
+                case "email desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorEmail);
+                    break;
+                case "website":
+                    vendor = vendor.OrderBy(s => s.vendorWebsite);
+                    break;
+                case "website desc":
+                    vendor = vendor.OrderByDescending(s => s.vendorWebsite);
+                    break;
+                case "city":
+                    vendor = vendor.OrderBy(s => s.city);
+                    break;
+                case "city desc":
+                    vendor = vendor.OrderByDescending(s => s.city);
+                    break;
+                case "state":
+                    vendor = vendor.OrderBy(s => s.state);
+                    break;
+                case "state desc":
+                    vendor = vendor.OrderByDescending(s => s.state);
+                    break;
+                case "zip":
+                    vendor = vendor.OrderBy(s => s.zip);
+                    break;
+                case "zip desc":
+                    vendor = vendor.OrderByDescending(s => s.zip);
+                    break;
+                case "vaccines":
+                    vendor = vendor.OrderBy(s => s.vaccines);
+                    break;
+                case "vaccines desc":
+                    vendor = vendor.OrderByDescending(s => s.vaccines);
+                    break;
+
+
+                default:
+                    vendor = vendor.OrderBy(s => s.vendorName);
+                    break;
+            }
+         
 
             if (!String.IsNullOrEmpty(sstring))
             {

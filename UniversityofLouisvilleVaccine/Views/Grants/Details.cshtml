@@ -37,7 +37,7 @@
 
         <dd>
             
-            @Html.ActionLink("Download", "Download", "Grants", new { document = Model.fileName.ToString() })
+            @Html.ActionLink("Download", "Download", new { document = Model.fileName.ToString() })
         </dd>
         @*<dd class="col-md-10">
             @if (Model.fileType == null)
