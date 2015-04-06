@@ -11,62 +11,16 @@ using UniversityofLouisvilleVaccine.Models;
 
 namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 {
-    
+
     public class ApptController : Controller
     {
-         ApptDBContext db = new ApptDBContext();
+        ApptDBContext db = new ApptDBContext();
 
         // GET: /Appt/
         //[Authorize(Roles = "Admin, Executive, ProgramStaff")]
-        public ActionResult Index(string sortby)
+        public ActionResult Index()
         {
-             ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
-            ViewBag.aNameSort = sortby == "aName" ? "aName desc" : "aName";
-            ViewBag.StartDateSort = sortby == "startdate" ? "startdate desc" : "startdate";
-            ViewBag.HourSort = sortby == "hour" ? "hour desc" : "hour";
-            ViewBag.MinuteSort = sortby == "minute" ? "minute desc" : "minute";
-
-            var appts = from a in db.Appointments select a;
-            switch (sortby)
-            {
-                case "Name desc":
-                    appts = appts.OrderByDescending(s => s.title);
-                    break;
-                case "Name":
-                    appts = appts.OrderBy(s => s.title);
-                    break;
-                case "aName":
-                    appts = appts.OrderBy(s => s.title);
-                    break;
-                case "aName desc":
-                    appts = appts.OrderByDescending(s => s.title);
-                    break;
-                case "startdate":
-                    appts = appts.OrderBy(s => s.start);
-                    break;
-                case "startdate desc":
-                    appts = appts.OrderByDescending(s => s.start);
-                    break;
-                case "hour":
-                    appts = appts.OrderBy(s => s.hour);
-                    break;
-                case "hour desc":
-                    appts = appts.OrderByDescending(s => s.hour);
-                    break;
-                case "minute":
-                    appts = appts.OrderBy(s => s.min);
-                    break;
-                case "minute desc":
-                    appts = appts.OrderByDescending(s => s.min);
-                    break;
-
-                default:
-                    appts = appts.OrderBy(s => s.title);
-                    break;
-            }
-
-            return View(appts);
-     
+            return View(db.Appointments.ToList());
         }
 
         // GET: /Appt/Details/5
@@ -86,7 +40,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
         // GET: /Appt/Create
-       // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
+        // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Create()
         {
             return View();
@@ -97,9 +51,10 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-       // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
-        public ActionResult Create([Bind(Include="id,title,start,hour,min,end,allDay")] Appointment appointment)
+        // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
+        public ActionResult Create([Bind(Include = "id,title,start,hour,min,end,allDay")] Appointment appointment)
         {
+
             if (ModelState.IsValid)
             {
                 db.Appointments.Add(appointment);
@@ -119,19 +74,41 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-       // [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient")]
+        // [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient")]
         public ActionResult PatientCreate([Bind(Include = "id,title,start,hour,min,end,allDay")] Appointment appointment)
         {
-            if (ModelState.IsValid)
+            Appointment ap = new Appointment();
+            ApptDBContext db3 = new ApptDBContext();
+
+            String startdate = appointment.start;
+
+            var datecount =
+                        (from VDB in db3.Appointments
+                         where VDB.start == startdate
+                         select VDB).Count();
+
+            if (datecount < 5)
             {
-                db.Appointments.Add(appointment);
-                db.SaveChanges();
-                //ViewBag.Message = "Appointment Scheduled";
-                //return View();
-                return RedirectToAction("Index", "Index");
+                if (ModelState.IsValid)
+                {
+                    db.Appointments.Add(appointment);
+                    db.SaveChanges();
+                    return RedirectToAction("PatientCreate");
+                }
             }
 
+            else
+            {
+                return RedirectToAction("ApptFull");
+
+            }
             return View(appointment);
+
+        }
+
+        public ActionResult ApptFull()
+        {
+            return View();
         }
 
         // GET: /Appt/Edit/5
@@ -156,7 +133,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //[Authorize(Roles = "Admin, Executive, ProgramStaff")]
-        public ActionResult Edit([Bind(Include="id,title,start,hour,min,end,allDay")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "id,title,start,hour,min,end,allDay")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +145,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
         // GET: /Appt/Delete/5
-       // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
+        // [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -232,7 +209,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         {
 
             ViewBag.date = DateTime.Today;
-            
+
             //Appointment appointment = db.Appointments.Find(start);
 
             return View(db.Appointments.ToList());

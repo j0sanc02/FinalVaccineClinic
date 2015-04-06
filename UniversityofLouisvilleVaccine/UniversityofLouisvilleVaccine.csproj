@@ -731,6 +731,7 @@
     <Content Include="Views\GInfo\Edit.cshtml" />
     <Content Include="Views\GInfo\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Appt\ApptFull.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\prettyPhoto\" />

@@ -5,21 +5,22 @@
 
     ViewBag.HoursList = new SelectList(new List<double>() { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 });
     ViewBag.MinsList = new SelectList(new List<double>() { 0, 15, 30, 45 });
-    
+
     Layout = "~/Views/Shared/PatientLayout.cshtml";
 }
 
-<div class=" col-md-5">
+<div class=" col-md-5" style="text-align:center">
     <br />
     <br />
     <br />
-    
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
             <h3>Schedule an appointment</h3>
+            <p><i>"Please note that appointment scheduling is limited to 5 per day."</i></p>
             <hr />
             @Html.ValidationSummary(true)
 
@@ -34,7 +35,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.start, new { @class = "control-label col-md-3" })
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.start, new { style = "width:175px", @class = "form-control" })
+                    @Html.EditorFor(model => model.start)
                     @Html.ValidationMessageFor(model => model.start)
                 </div>
             </div>
@@ -56,7 +57,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-5 col-md-10">
+                <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
@@ -64,30 +65,34 @@
     }
 </div>
 
-<div class="col-md-7">
+<div class="col-md-7" style="text-align:center">
     <br />
     <br />
     <br />
-    <h3>Scheduled Appointments</h3>
+    <h3>View of Scheduled Appointments</h3>
+    <br />
+    <hr />
     <div id="calendar"></div>
 </div>
+<row>&nbsp;</row>
+
 
 
 @section scripts{
 
-@if (ViewBag.Message != null)
-{
-    <script>
+    @if (ViewBag.Message != null)
+    {
+        <script>
 
-$(document).ready(function(){
+            $(document).ready(function () {
 
-alert('@ViewBag.Message');
-   
-});
+                alert('@ViewBag.Message');
 
-    </script>
-    
-}
+            });
+
+        </script>
+
+    }
 
     <script type="text/javascript">
 
@@ -117,7 +122,7 @@ alert('@ViewBag.Message');
 
 
     </script>
-@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 
 }
 

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ApptFull";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Too Many Appointments</h2>
+<hr />
+
+<p>
+    Unfortunately, too many appointments have been scheduled for that day.
+    <br />
+    <br />
+    Please return to the "Schedule an Appointment" screen and choose a different day.
+</p>
+<br />
+
+@Html.ActionLink("Schedule an Appointment", "PatientCreate")
+
