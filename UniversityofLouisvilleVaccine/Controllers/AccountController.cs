@@ -13,7 +13,7 @@ using UniversityofLouisvilleVaccine.DataContexts;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
-    [Authorize(Roles = "Admin, Executive, ProgramStaff, Research")]
+    [Authorize(Roles = "Admin, Executive, ProgramStaff, Research, Patient")]
     public class AccountController : Controller
     {
         public AccountController()
@@ -91,7 +91,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient")]
+        [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient, Research")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
