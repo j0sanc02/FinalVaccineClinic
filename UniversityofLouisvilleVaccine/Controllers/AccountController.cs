@@ -13,7 +13,7 @@ using UniversityofLouisvilleVaccine.DataContexts;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
-    //[Authorize(Roles = "Admin, Executive, Program Staff, Researcher")]
+    [Authorize(Roles = "Admin, Executive, ProgramStaff, Research")]
     public class AccountController : Controller
     {
         public AccountController()
@@ -91,7 +91,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient")]
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -159,6 +159,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Executive, ProgramStaff, Patient, Research")]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
@@ -177,7 +178,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Executive")]
         public ActionResult Index()
         {
             var Db = new UniversityofLouisvilleVaccine.DataContexts.ApplicationDbContext();
@@ -192,7 +193,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize(Roles = "Admin, Executive")]
         public ActionResult Edit(string id, ManageMessageId? Message = null)
         {
             var Db = new UniversityofLouisvilleVaccine.DataContexts.ApplicationDbContext();
@@ -204,7 +205,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
 
         [HttpPost]
-        //[Authorize]
+        [Authorize(Roles = "Admin, Executive")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditUserViewModel model)
         {
@@ -225,7 +226,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id = null)
         {
             var Db = new UniversityofLouisvilleVaccine.DataContexts.ApplicationDbContext();
@@ -252,7 +253,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize (Roles = "Admin, Executive")]
         public ActionResult UserRoles(string id)
         {
             var Db = new UniversityofLouisvilleVaccine.DataContexts.ApplicationDbContext();
@@ -263,8 +264,8 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
 
         [HttpPost]
-        //[Authorize]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult UserRoles(SelectUserRolesViewModel model)
         {
             if (ModelState.IsValid)

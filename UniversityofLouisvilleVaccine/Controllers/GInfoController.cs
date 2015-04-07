@@ -11,6 +11,7 @@ using UniversityofLouisvilleVaccine.DataContexts;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
+    [Authorize(Roles = "Admin, Executive, Research, ProgramStaff")]
     public class GInfoController : Controller
     {
         private GInfoDBContext db = new GInfoDBContext();
@@ -151,6 +152,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /GInfo/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -167,6 +169,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
         // POST: /GInfo/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

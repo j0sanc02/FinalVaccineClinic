@@ -12,6 +12,7 @@ using System;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
+    [Authorize(Roles = "Admin, Executive, Research, ProgramStaff")]
     public class GrantsController : Controller
     {
         private GrantsDBContext db = new GrantsDBContext();
@@ -178,6 +179,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /Grants/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -194,6 +196,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
         // POST: /Grants/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id, string document)
         {

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         //

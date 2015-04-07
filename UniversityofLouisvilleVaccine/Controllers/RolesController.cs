@@ -9,7 +9,7 @@ using UniversityofLouisvilleVaccine.Models;
 
 namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         private ApplicationDbContext _db = new ApplicationDbContext();
@@ -26,7 +26,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         public ActionResult Create(string message = "")
         {
             ViewBag.Message = message;
@@ -35,7 +35,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult Create([Bind(Include =
             "RoleName,Description")]RoleViewModel model)
         {
@@ -59,7 +59,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         public ActionResult Edit(string id)
         {
             // It's actually the Role.Name tucked into the id param:
@@ -70,7 +70,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public ActionResult Edit([Bind(Include =
             "RoleName,OriginalRoleName,Description")] EditRoleViewModel model)
         {
@@ -87,7 +87,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(string id)
         {

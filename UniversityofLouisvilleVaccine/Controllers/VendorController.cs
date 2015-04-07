@@ -14,11 +14,13 @@ using System.Web.UI;
 
 namespace UniversityofLouisvilleVaccine.Controllers
 {
+    [Authorize(Roles = "Admin, Executive, ProgramStaff")]
     public class VendorController : Controller
     {
         private VendorDBContext db = new VendorDBContext();
 
         // GET: /Vendor/
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Index(string sstring, string sortby)
         {
             ViewBag.NameSort = String.IsNullOrEmpty(sortby) ? "Name desc" : "";
@@ -116,6 +118,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /Vendor/Details/5
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -131,6 +134,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /Vendor/Create
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Create()
         {
             return View();
@@ -141,6 +145,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Create([Bind(Include="ID,vendorID,vendorName,vendorPhone,vendorFax,vendorEmail,vendorWebsite,vendorAddress1,vendorAddress2,city,state,zip,vaccines")] Vendor vendor)
         {
             if (ModelState.IsValid)
@@ -154,6 +159,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /Vendor/Edit/5
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -173,6 +179,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public ActionResult Edit([Bind(Include="ID,vendorID,vendorName,vendorPhone,vendorFax,vendorEmail,vendorWebsite,vendorAddress1,vendorAddress2,city,state,zip,vaccines")] Vendor vendor)
         {
             if (ModelState.IsValid)
@@ -185,6 +192,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         }
 
         // GET: /Vendor/Delete/5
+        [Authorize(Roles = "Admin, Executive")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -202,6 +210,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // POST: /Vendor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Executive")]
         public ActionResult DeleteConfirmed(int id)
         {
             Vendor vendor = db.Vendors.Find(id);
@@ -218,6 +227,8 @@ namespace UniversityofLouisvilleVaccine.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [Authorize(Roles = "Admin, Executive, ProgramStaff")]
         public void ExporttoExcel()
         {
             var grid = new GridView();
