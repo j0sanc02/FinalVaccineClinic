@@ -132,7 +132,13 @@
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.VaccineUseId }) |
                         @Html.ActionLink("Details", "Details", new { id = item.VaccineUseId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.VaccineUseId })
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.VaccineUseId })
+                            }
+                        }
+                        
                     </td>
                 </tr>
             }

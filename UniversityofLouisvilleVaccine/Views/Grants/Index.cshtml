@@ -57,7 +57,14 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id, document = item.fileName.ToString() })
+
+                    @{
+                        if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id, document = item.fileName.ToString() })
+                        }
+                    }
+                    
                 </td>
             </tr>
         }
