@@ -16,8 +16,7 @@ namespace UniversityofLouisvilleVaccine.Models
         [Display(Name = "File Title")]
         public string filetitle { get; set; }
 
-        [Required]
-        [Display(Name = "File Name")]
+        [Display(Name = "File Sub-name")]
         public string fileName { get; set; }
         
         [Required]

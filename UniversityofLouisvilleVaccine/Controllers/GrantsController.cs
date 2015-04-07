@@ -167,10 +167,8 @@ namespace UniversityofLouisvilleVaccine.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 if (upload != null && upload.ContentLength > 0)
                 {
-
                     if (upload != null && upload.ContentLength > 0)
                     {
                         var document = new FilePath
@@ -181,9 +179,8 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
                         grants.FilePaths = new List<FilePath>();
                         grants.FilePaths.Add(document);
-                        upload.SaveAs(Path.Combine(Server.MapPath("~/Documents"), document.FileName));
+                        upload.SaveAs(Path.Combine(Server.MapPath("~/GrantDocuments"), document.FileName));
                     }
-                    
                 }
 
                 db.Entry(grants).State = EntityState.Modified;
@@ -218,7 +215,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
             Grants grants = db.Grant.Find(id);
             db.Grant.Remove(grants);
             db.SaveChanges();
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Documents/";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "GrantDocuments/";
             if (System.IO.File.Exists(path + document))
             {
 
@@ -238,7 +235,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
         public FilePathResult Download(string document)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Documents/";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "GrantDocuments/";
             string fileName = document;
             return File(path + fileName, "text/plain", document);
 

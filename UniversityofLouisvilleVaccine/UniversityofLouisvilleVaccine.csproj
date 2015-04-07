@@ -271,6 +271,10 @@
     <Compile Include="DataContexts\GrantsMigrations\201504070713097_return.Designer.cs">
       <DependentUpon>201504070713097_return.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201504071920088_change file name nullable.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201504071920088_change file name nullable.Designer.cs">
+      <DependentUpon>201504071920088_change file name nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\GrantsMigrations\Configuration.cs" />
     <Compile Include="DataContexts\Identity.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.cs" />
@@ -829,6 +833,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\GrantsMigrations\201504070713097_return.resx">
       <DependentUpon>201504070713097_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201504071920088_change file name nullable.resx">
+      <DependentUpon>201504071920088_change file name nullable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.resx">
       <DependentUpon>201502230351497_Initial Create.cs</DependentUpon>
