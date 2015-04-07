@@ -55,6 +55,7 @@ html .fc,
 	}
 	
 .fc-header-title h2 {
+    font-size: medium;
 	margin-top: 0;
 	white-space: nowrap;
 	}

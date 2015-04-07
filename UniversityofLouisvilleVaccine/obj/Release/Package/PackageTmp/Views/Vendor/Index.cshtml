@@ -9,76 +9,114 @@
 <br />
 <h2>Index of Vendors</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+
+<row>
+    <div class="col-md-2 btn btn-default">
+        @Html.ActionLink("Create", "Create")
+    </div>
+    <div class="col-md-4">
+        &nbsp;
+    </div>
+     @using (Html.BeginForm()) 
+     {
+         <div class=" col-md-4">
+            Name: @Html.TextBox("sstring")
+             <input class="btn btn-default" type="submit" value="Filter" />
+        </div>
+     }   
+
+    <div class="col-md-2 btn btn-default">
+        @Html.ActionLink("Excel", "ExporttoExcel", "Vendor")
+    </div> 
+</row>
+<row>
+    &nbsp;
+</row>
+
+<row>
+    <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.vendorName)
+            @*@Html.DisplayNameFor(model => model.vendorName)*@
+            @Html.ActionLink("Name", "Index", new { sortBy = ViewBag.vNameSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.vendorPhone)
+            @*@Html.DisplayNameFor(model => model.vendorPhone)*@
+            @Html.ActionLink("Telephone", "Index", new { sortBy = ViewBag.TelNumSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.vendorFax)
+            @*@@Html.DisplayNameFor(model => model.vendorFax)*@
+            @Html.ActionLink("Fax Number", "Index", new { sortBy = ViewBag.FaxNumSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.vendorEmail)
+            @* @Html.DisplayNameFor(model => model.vendorEmail)*@
+            @Html.ActionLink("Email", "Index", new { sortBy = ViewBag.EmailSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.vendorWebsite)
+            @*@Html.DisplayNameFor(model => model.vendorWebsite)*@
+            @Html.ActionLink("Website", "Index", new { sortBy = ViewBag.WebSiteSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.city)
+            @*@Html.DisplayNameFor(model => model.city)*@
+            @Html.ActionLink("City", "Index", new { sortBy = ViewBag.CitySort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.state)
+            @*@Html.DisplayNameFor(model => model.state)*@
+            @Html.ActionLink("State", "Index", new { sortBy = ViewBag.StateSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.zip)
+            @*@@Html.DisplayNameFor(model => model.zip)*@
+            @Html.ActionLink("ZIP", "Index", new { sortBy = ViewBag.ZipSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.vaccines)
+            @*@Html.DisplayNameFor(model => model.vaccines)*@
+            @Html.ActionLink("Vaccines", "Index", new { sortBy = ViewBag.VaccineSort })
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorFax)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vendorWebsite)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.state)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vaccines)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorFax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendorWebsite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vaccines)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    }
+                }
+                
+            </td>
+        </tr>
+    }
 </table>
+</row>
+

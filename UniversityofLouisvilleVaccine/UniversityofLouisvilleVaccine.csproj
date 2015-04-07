@@ -178,6 +178,7 @@
     <Compile Include="Controllers\EmailLookupController.cs" />
     <Compile Include="Controllers\GInfoController.cs" />
     <Compile Include="Controllers\Grant2Controller.cs" />
+    <Compile Include="Controllers\GrantDocsController.cs" />
     <Compile Include="Controllers\GrantsController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\LandingController.cs" />
@@ -227,6 +228,12 @@
       <DependentUpon>201503300112119_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\GInfoMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\GrantDocs.cs" />
+    <Compile Include="DataContexts\GrantDocsMigrations\201504070435353_Initial.cs" />
+    <Compile Include="DataContexts\GrantDocsMigrations\201504070435353_Initial.Designer.cs">
+      <DependentUpon>201504070435353_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantDocsMigrations\Configuration.cs" />
     <Compile Include="DataContexts\Grants.cs" />
     <Compile Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.cs" />
     <Compile Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.Designer.cs">
@@ -251,6 +258,18 @@
     <Compile Include="DataContexts\GrantsMigrations\201503290706342_Formats.cs" />
     <Compile Include="DataContexts\GrantsMigrations\201503290706342_Formats.Designer.cs">
       <DependentUpon>201503290706342_Formats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201504070700356_Added title.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201504070700356_Added title.Designer.cs">
+      <DependentUpon>201504070700356_Added title.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201504070710592_set filename.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201504070710592_set filename.Designer.cs">
+      <DependentUpon>201504070710592_set filename.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\GrantsMigrations\201504070713097_return.cs" />
+    <Compile Include="DataContexts\GrantsMigrations\201504070713097_return.Designer.cs">
+      <DependentUpon>201504070713097_return.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\GrantsMigrations\Configuration.cs" />
     <Compile Include="DataContexts\Identity.cs" />
@@ -348,12 +367,16 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationUserRole.cs" />
     <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\DocFile.cs" />
+    <Compile Include="Models\DocFilePath.cs" />
+    <Compile Include="Models\DocFileType.cs" />
     <Compile Include="Models\Elookup.cs" />
     <Compile Include="Models\EmailLookup.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\FilePath.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\GInfo.cs" />
+    <Compile Include="Models\GrantDocs.cs" />
     <Compile Include="Models\Grants.cs" />
     <Compile Include="Models\IdentityManager.cs" />
     <Compile Include="Models\Vaccine.cs" />
@@ -366,12 +389,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Default Connection.mdf" />
-    <Content Include="App_Data\Default Connection_log.ldf">
-      <DependentUpon>Default Connection.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Data\Vacmdf_log.ldf" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\Common.Logging.Core.dll" />
+    <Content Include="bin\Common.Logging.Core.pdb" />
+    <Content Include="bin\Common.Logging.Core.xml" />
+    <Content Include="bin\Common.Logging.dll" />
+    <Content Include="bin\Common.Logging.pdb" />
+    <Content Include="bin\Common.Logging.xml" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
@@ -506,6 +532,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\VaccineStyle.css" />
+    <Content Include="GrantDocuments\test.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -520,6 +547,7 @@
     <Content Include="FileUploads\test777.pdf" />
     <Content Include="Downloads\PatientHealthQuestionnaire.pdf" />
     <Content Include="App_Data\Vacmdf" />
+    <Content Include="GrantDocuments\test777.pdf" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -732,10 +760,16 @@
     <Content Include="Views\GInfo\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Appt\ApptFull.cshtml" />
+    <Content Include="Views\Appt\Confirmation.cshtml" />
+    <Content Include="Views\Appt\Confirm.cshtml" />
+    <Content Include="Views\GrantDocs\Create.cshtml" />
+    <Content Include="Views\GrantDocs\Delete.cshtml" />
+    <Content Include="Views\GrantDocs\Details.cshtml" />
+    <Content Include="Views\GrantDocs\Edit.cshtml" />
+    <Content Include="Views\GrantDocs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\prettyPhoto\" />
-    <Folder Include="Documents\" />
     <Folder Include="Views\Documents\css\" />
     <Folder Include="Views\Documents\fonts\" />
     <Folder Include="Views\Documents\images\" />
@@ -766,6 +800,9 @@
     <EmbeddedResource Include="DataContexts\GInfoMigrations\201503300112119_Initial.resx">
       <DependentUpon>201503300112119_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantDocsMigrations\201504070435353_Initial.resx">
+      <DependentUpon>201504070435353_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290421367_Initial Create.resx">
       <DependentUpon>201503290421367_Initial Create.cs</DependentUpon>
     </EmbeddedResource>
@@ -783,6 +820,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\GrantsMigrations\201503290706342_Formats.resx">
       <DependentUpon>201503290706342_Formats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201504070700356_Added title.resx">
+      <DependentUpon>201504070700356_Added title.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201504070710592_set filename.resx">
+      <DependentUpon>201504070710592_set filename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\GrantsMigrations\201504070713097_return.resx">
+      <DependentUpon>201504070713097_return.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201502230351497_Initial Create.resx">
       <DependentUpon>201502230351497_Initial Create.cs</DependentUpon>

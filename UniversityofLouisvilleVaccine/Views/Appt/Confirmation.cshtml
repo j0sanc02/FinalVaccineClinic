@@ -1,0 +1,29 @@
+﻿@model UniversityofLouisvilleVaccine.Models.Appointment
+
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2>Thank You!</h2>
+<hr />
+
+<p>
+    Your appointment has been scheduled.
+    <br />
+    If you have any questions, please contact us at:
+    <br />
+    <strong>UofL Vaccine and International Travel Clinic</strong><br>
+    550 S. Jackson Street<br/>
+    Ambulatory Care Building, Floor 2 <br/>
+    Louisville, KY 40202<br/>
+    <abbr>P:</abbr><a href="tel:502-562-2822"> (502)-562-2822</a>
+    
+</p>
+<br />
+
+@Html.ActionLink("Schedule an Appointment", "PatientCreate")
+
+

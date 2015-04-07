@@ -13,6 +13,9 @@ namespace UniversityofLouisvilleVaccine.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
+        [Display(Name = "File Title")]
+        public string filetitle { get; set; }
+
         [Required]
         [Display(Name = "File Name")]
         public string fileName { get; set; }

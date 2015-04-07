@@ -8,66 +8,69 @@
 <br />
 <br />
 <h2>Index of Grant Documents</h2>
-<hr />
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@using (Html.BeginForm("UploadFile", "Grants", FormMethod.Post, new { enctype = "multipart/form-data", id = "UploadFilesForm" }))
-{
-    <table class="table">
-        <tr>
-            <th>
-                @*@Html.DisplayNameFor(model => model.docType)*@
-                @Html.ActionLink("Document Type", "Index", new { sortBy = ViewBag.DocTypeSort })
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.fileName)*@
-                @Html.ActionLink("File Name", "Index", new { sortBy = ViewBag.FileNameSort })
-            </th>
-            <th>
-                @*@Html.DisplayNameFor(model => model.uploadDate)*@
-                @Html.ActionLink("Upload Date", "Index", new { sortBy = ViewBag.UpDateSort })
-            </th>
-            <th>
-                @Html.Display("Document")
-            </th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
+
+
+
+    <row>
+        <div class="col-md-1 btn btn-default createGrantButton" style="padding-right:5px;">
+            @Html.ActionLink("Create", "Create", null, new { @class = "classname" })<br />
+        </div>
+    </row>
+    <row>&nbsp;</row>
+    <row>
+        <table class="table table-striped table-hover table-responsive">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.docType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fileName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.uploadDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Files)
-                    @Html.ActionLink("Download", "Download", new { document = item.fileName.ToString() })
-
-
-
-
-
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-
-                    @{
-                        if (User.IsInRole("Admin"))
-                        {
-                            @Html.ActionLink("Delete", "Delete", new { id = item.id, document = item.fileName.ToString() })
-                        }
-                    }
-                    
-                </td>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.docType)*@
+                    @Html.ActionLink("Document Type", "Index", new { sortBy = ViewBag.DocTypeSort })
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.fileName)*@
+                    @Html.ActionLink("File Name", "Index", new { sortBy = ViewBag.FileNameSort })
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.uploadDate)*@
+                    @Html.ActionLink("Upload Date", "Index", new { sortBy = ViewBag.UpDateSort })
+                </th>
+                <th>
+                    @Html.Display("Document")
+                </th>
+                <th></th>
             </tr>
-        }
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.docType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.filetitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uploadDate)
+                    </td>
+                    <td>
 
-}
+                        @Html.ActionLink("Download", "Download", new { document = item.fileName.ToString() })
+
+                        
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id, document = item.fileName.ToString() })
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </row>
+    
+

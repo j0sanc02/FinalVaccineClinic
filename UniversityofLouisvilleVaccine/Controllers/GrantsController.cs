@@ -60,9 +60,9 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
             return View(grants);
 
-            string[] dirs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"Documents\", "*.*");
-            ViewBag.filename = dirs.ToString();
-            return View(db.Grant.ToList());
+            //string[] dirs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"Documents\", "*.*");
+            //ViewBag.filename = dirs.ToString();
+            //return View(db.Grant.ToList());
         }
 
         // GET: /Grants/Details/5
@@ -92,22 +92,14 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,docType,fileName,uploadDate")]Grants grants, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "id,docType,filetitle,fileName,uploadDate")]Grants grants, HttpPostedFileBase upload)
         {
                                             
             if (ModelState.IsValid)
             {
-                //var filename = Path.GetFileName(grants.fileType.FileName);
-                //string documentpath = "~/FileUploads/" + filename;
-                //var path = Path.Combine(Server.MapPath("~/FileUploads/"), filename);
-                //grants.fileType.SaveAs(path);  
 
                 if (upload != null && upload.ContentLength > 0)
                 {
-
-                    if (upload != null && upload.ContentLength > 0)
-                    {
-
                         var document = new FilePath
                         {
                             FileName = System.IO.Path.GetFileName(upload.FileName),
@@ -116,12 +108,35 @@ namespace UniversityofLouisvilleVaccine.Controllers
 
                         grants.FilePaths = new List<FilePath>();
                         grants.FilePaths.Add(document);
-                        upload.SaveAs(Path.Combine(Server.MapPath("~/Documents"), document.FileName));
-                    }
+                        upload.SaveAs(Path.Combine(Server.MapPath("~/GrantDocuments"), document.FileName));
 
-                    db.Grant.Add(grants);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+               
+
+                        db.Grant.Add(grants);
+                        db.SaveChanges();
+
+                        var x = new FilePath
+                        {
+                            FileName = System.IO.Path.GetFileName(upload.FileName),
+                            FileType = FileType.Document
+                        };
+                        
+
+                        string fn = x.FileName;
+
+                        var query =
+                            from f in db.Grant
+                            where f.id == grants.id
+                            select f;
+
+                        foreach (Grants g in query)
+                        {
+                            g.fileName = fn;
+                        }
+
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+             
                 }
             }
 
@@ -148,7 +163,7 @@ namespace UniversityofLouisvilleVaccine.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,docType,fileName,uploadDate")] Grants grants, HttpPostedFileBase upload)
+        public ActionResult Edit([Bind(Include = "id,docType,filetitle,fileName,uploadDate")] Grants grants, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {

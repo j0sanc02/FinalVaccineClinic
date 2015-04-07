@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="jasonsanchez819.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jpapp_000\\Documents\\GitHub\\FinalVaccineClinic\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\jpapp_000\\Documents\\GitHub\\FinalVaccineClinic\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="jasonsanchez819.com/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\jpapp_000\\Documents\\GitHub\\FinalVaccineClinic\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="Default Connection-Web.config Connection String" description="" value="Default Connection_ConnectionString" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jpapp_000\\Documents\\GitHub\\FinalVaccineClinic\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Default Connection']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="server=sunflower.arvixe.com;database=Vac;uid=j0sanc02;password=sanchez819;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jpapp_000\\Documents\\GitHub\\FinalVaccineClinic\\UniversityofLouisvilleVaccine\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

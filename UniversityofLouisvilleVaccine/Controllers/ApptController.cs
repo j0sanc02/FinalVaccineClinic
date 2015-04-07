@@ -93,7 +93,7 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
                 {
                     db.Appointments.Add(appointment);
                     db.SaveChanges();
-                    return RedirectToAction("PatientCreate");
+                    return RedirectToAction("Confirm");
                 }
             }
 
@@ -108,6 +108,11 @@ namespace UniversityofLouisvilleVaccine.App_Start.Controllers
 
 
         public ActionResult ApptFull()
+        {
+            return View();
+        }
+
+        public ActionResult Confirm()
         {
             return View();
         }

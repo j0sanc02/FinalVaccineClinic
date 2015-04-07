@@ -19,9 +19,10 @@
     @using (Html.BeginForm())
 {
 
-    <div class="col-md-1 btn btn-default">
-        @Html.ActionLink("Create New", "Create", null, new { @class = "classname" })
+    <div class="col-md-1 btn btn-default createVaccineButton" style="padding-right:5px;">
+      @Html.ActionLink("Create", "Create", null, new { @class = "classname" })
     </div>
+
 
     @*<div class="col-md-3">
         ID: @Html.TextBox("SearchID")
@@ -30,12 +31,12 @@
         
     <div class=" col-md-4">
         Name: @Html.TextBox("SearchString")
-        <input type="submit" value="Filter" />
+        <input class="btn btn-default" type="submit" value="Filter" />
     </div>
     
     <div class="col-md-3">
         Lot #: @Html.DropDownList("lotNumber", " ")
-        <input type="submit" value="Filter"/>
+        <input class="btn btn-default" type="submit" value="Filter"/>
     </div>
 
     <div class="col-md-1 btn btn-default">
@@ -47,37 +48,45 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.vaccineID)
+                    @*@Html.DisplayNameFor(model => model.vaccineID)*@
+                    @Html.ActionLink("Vaccine ID", "Index", new { sortBy = ViewBag.DescSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.vaccineName)
+                    @*@Html.DisplayNameFor(model => model.vaccineName)*@
+                    @Html.ActionLink("Vaccine", "Index", new { sortBy = ViewBag.NameSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.dateReceived)
+                    @*@Html.DisplayNameFor(model => model.dateReceived)*@
+                    @Html.ActionLink("Date Received", "Index", new { sortBy = ViewBag.DateSort })
                 </th>
                 @*<th>
-                    @Html.DisplayNameFor(model => model.CPT)
+            @Html.DisplayNameFor(model => model.CPT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD9Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NDC)
+        </th>*@
+                <th>
+                    @*@Html.DisplayNameFor(model => model.leadTime)*@
+                    @Html.ActionLink("Lead Time", "Index", new { sortBy = ViewBag.LeadTimeSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ICD9Code)
+                    @*@Html.DisplayNameFor(model => model.lotNumber)*@
+                    @Html.ActionLink("Lot Number", "Index", new { sortBy = ViewBag.LotNumSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.NDC)
-                </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.leadTime)
+                    @*@Html.DisplayNameFor(model => model.numofDoses)*@
+                    @Html.ActionLink("Quantity Remaining", "Index", new { sortBy = ViewBag.QuantRemSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.lotNumber)
+                    @*@Html.DisplayNameFor(model => model.salesPrice)*@
+                    @Html.ActionLink("Cost", "Index", new { sortBy = ViewBag.CostSort })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.numofDoses)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.salesPrice)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.expDate)
+                    @*@Html.DisplayNameFor(model => model.expDate)*@
+                    @Html.ActionLink("Expiration Date", "Index", new { sortBy = ViewBag.ExpDateSort })
                 </th>
 
                 <th></th>
@@ -123,7 +132,13 @@
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            }
+                        }
+                        
                     </td>
                 </tr>
             }

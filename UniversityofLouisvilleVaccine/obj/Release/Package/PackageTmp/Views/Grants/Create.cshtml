@@ -28,6 +28,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.filetitle, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.filetitle, new { style = "width:175px", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.filetitle)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.fileName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.fileName, new { style = "width:175px", @class = "form-control" })
@@ -42,7 +50,7 @@
                 @Html.ValidationMessageFor(model => model.uploadDate)
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.Label("Document", new { @class = "control-label col-md-2" })
             <div class="col-md-10">

@@ -11,7 +11,7 @@ namespace UniversityofLouisvilleVaccine.DataContexts
     {
         
         public GrantsDBContext()
-            : base("Default Connection")
+            : base("DefaultConnection")
         {
 
         }

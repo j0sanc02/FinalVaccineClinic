@@ -9,60 +9,73 @@
 <br />
 <h2>Grant Information</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.grantTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.grantEnd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.grantAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.grantFunder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.coordName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.deadline)
-        </th>
+<div class="col-md-1 btn btn-default">
+    @Html.ActionLink("Create", "Create")
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.grantTitle)*@
+                @Html.ActionLink("Grant Title", "Index", new { sortBy = ViewBag.gNameSort })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.grantEnd)*@
+                @Html.ActionLink("End Date", "Index", new { sortBy = ViewBag.EndDateSort })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.grantAmount)*@
+                @Html.ActionLink("Amount", "Index", new { sortBy = ViewBag.AmountSort })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.grantFunder)*@
+                @Html.ActionLink("Sponsor", "Index", new { sortBy = ViewBag.SponsorSort })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.coordName)*@
+                @Html.ActionLink("Coordinator Name", "Index", new { sortBy = ViewBag.CoordNameSort })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.deadline)*@
+                @Html.ActionLink("Deadline", "Index", new { sortBy = ViewBag.DeadlineSort })
+            </th>
 
-        <th></th>
-    </tr>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.grantTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.grantStart)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.grantAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.grantFunder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.coordName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.deadline)
-        </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grantTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grantStart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grantAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grantFunder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.coordName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deadline)
+                </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) 
+                    @{
+                        if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        }
+                    }
+                    
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>

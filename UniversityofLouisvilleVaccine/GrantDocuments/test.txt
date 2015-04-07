@@ -1,0 +1,22 @@
+,refugeePrice,clinicPrice,description,inventoryWarning
+
+
+VaccineID
+LotNumber
+Exp Date
+Vaccine Name
+Date Received
+CPT
+ICD-9 Code
+NDC
+Lead Time
+quantity
+Description
+Warning Amount
+Refugee Price
+Clinic Price
+Cost
+
+VaccineNotification vn = new VaccineNotification();
+
+                            vdb.vaccineID = vn.vaccineID;
