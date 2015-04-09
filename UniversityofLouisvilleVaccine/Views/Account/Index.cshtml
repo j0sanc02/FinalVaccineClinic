@@ -11,6 +11,8 @@
 
 <p>
     @Html.ActionLink("Create New", "Register")
+    <span class="glyphicon glyphicon-plus" style="color:#2A6496"></span>
+
 </p>
 <table class="table">
     <tr>
@@ -45,9 +47,15 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.UserName }) |
-                @Html.ActionLink("Roles", "UserRoles", new { id = item.UserName }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.UserName })
+                @{
+                    if (User.IsInRole("Admin"))
+                    {
+                           @Html.ActionLink("Edit |", "Edit", new { id = item.UserName }) 
+                        @Html.ActionLink("Roles |", "UserRoles", new { id = item.UserName }) 
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UserName })
+                    }
+                }
+
             </td>
         </tr>
     }

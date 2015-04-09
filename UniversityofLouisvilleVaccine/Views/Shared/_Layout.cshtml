@@ -67,9 +67,16 @@
                      }   
                         
                     @{
-                        if (User.IsInRole("Admin"))
+                        if (User.IsInRole("Admin")||User.IsInRole("Executive"))
                         {
                             <li>@Html.ActionLink("Users", "Index", "Account")</li>
+
+                        }
+                    }
+
+                    @{
+                        if (User.IsInRole("Admin"))
+                        {
                             <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
                         }
                     }
