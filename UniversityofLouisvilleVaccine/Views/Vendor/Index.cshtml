@@ -13,6 +13,7 @@
 <row>
     <div class="col-md-2 btn btn-default">
         @Html.ActionLink("Create", "Create")
+        <span class="glyphicon glyphicon-plus" style="color:#2A6496"></span>
     </div>
     <div class="col-md-4">
         &nbsp;
@@ -21,12 +22,16 @@
      {
          <div class=" col-md-4">
             Name: @Html.TextBox("sstring")
-             <input class="btn btn-default" type="submit" value="Filter" />
+             <button type="submit" class="btn btn-default">
+                 <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
+             </button>
         </div>
      }   
 
     <div class="col-md-2 btn btn-default">
         @Html.ActionLink("Excel", "ExporttoExcel", "Vendor")
+        <span class="glyphicon glyphicon-export" style="color:#2A6496"></span>
+
     </div> 
 </row>
 <row>
