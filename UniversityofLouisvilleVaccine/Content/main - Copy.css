@@ -517,7 +517,7 @@ ul.nostyle i {
   transition: none;
 }
 #testimonial {
-  background: #333333 url(../images/testimonial/bg.jpg) no-repeat 0 0;
+  background: #333333 /*url(../images/testimonial/bg.jpg) no-repeat 0 0*/;
   background-size: cover;
   padding: 100px 0;
   color: #fff;
